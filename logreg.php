@@ -5,7 +5,7 @@ session_start();
 $errors = [];
 $showSuccessPopup = false;  // Flag to trigger success popup
 
-$name = $username = $contact = $pet_name = '';
+$name = $username = $contact = $email = $pet_name = '';
 
 // LOGIN
 if (isset($_POST['login'])) {
@@ -80,6 +80,10 @@ if (isset($_POST['register'])) {
     $errors[] = "Invalid contact number. Must be a valid Philippine number.";
   }
 
+  if(!preg_match(^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6} $email)) {
+     $errors[] = "Invalid email input";
+  }
+
   // Password validations
   if ($password !== $confirm_password) {
     $errors[] = "Passwords do not match.";
@@ -97,13 +101,13 @@ if (isset($_POST['register'])) {
   if (empty($errors)) {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $stmt = $con->prepare("INSERT INTO users (name, username, contact, password, security_answer) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("sssss", $name, $username, $contact, $hashed_password, $pet_name);
+    $stmt = $con->prepare("INSERT INTO users (name, username, contact, email, password, security_answer) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssss", $name, $username, $contact, $email, $hashed_password, $pet_name);
 
     if ($stmt->execute()) {
       $showSuccessPopup = true;
       // Clear form fields so they don't persist after success
-      $name = $username = $contact = $pet_name = '';
+      $name = $username = $contact = $email = $pet_name = '';
     } else {
       $errors[] = "Registration failed. Please try again.";
     }
@@ -118,7 +122,7 @@ if (isset($_POST['register'])) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="logreg.css" />
-  <title>Modern Login Page</title>
+  <title>SioSio Login Page</title>
 </head>
 
 <body>
@@ -133,6 +137,8 @@ if (isset($_POST['register'])) {
         <input type="text" name="username" placeholder="Username" required
           value="<?php echo htmlspecialchars($username); ?>" />
         <input type="text" name="contact" placeholder="Contact" required
+          value="<?php echo htmlspecialchars($contact); ?>" />
+        <input type="text" name="email" placeholder="Email" required
           value="<?php echo htmlspecialchars($contact); ?>" />
 
         <div class="password-container">
@@ -239,3 +245,4 @@ if (isset($_POST['register'])) {
 </body>
 
 </html>
+
