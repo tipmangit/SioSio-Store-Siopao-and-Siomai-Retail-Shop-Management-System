@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a1a;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-family: 'Amatic SC', cursive;
+    font-size: 28px;
+    color: white;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+   
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Welcome Section */
+.welcome {
+    text-align: center;
+    padding: 15px;
+    font-family: 'Kalam', cursive;
+}
+
+.red {
+    color: red;
+}
+
+/* Product Section */
+.products {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.product {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product img {
+    width:450px;
+    height: auto;
+    border: 2px solid black;
+    margin-bottom: 10px; /* space between image and button */
+}
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    font-family: 'Kalam', cursive;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+    height: 50px;
+    margin-top: 30px;
+}
