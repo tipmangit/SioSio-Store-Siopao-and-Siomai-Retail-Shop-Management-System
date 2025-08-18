@@ -1,11 +1,11 @@
 <?php
-include("php/config.php");
+include("config.php");
 session_start();
 
 $errors = [];
 $showSuccessPopup = false;  // Flag to trigger success popup
 
-$name = $username = $contact = $email = $pet_name = '';
+$name = $username = $contact = $email = $securityans = '';
 
 // LOGIN
 if (isset($_POST['login'])) {
@@ -97,17 +97,21 @@ if (isset($_POST['register'])) {
     $errors[] = "Password must include an uppercase letter, a lowercase letter, a number, and a special character.";
   }
 
+  if (!preg_match('/^[\w\.-]+@[\w\.-]+\.[a-zA-Z]{2,6}$/', $email)) {
+  $errors[] = "Invalid email format.";
+  }
+
   // If no errors, register user
   if (empty($errors)) {
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
     $stmt = $con->prepare("INSERT INTO users (name, username, contact, email, password, security_answer) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $name, $username, $contact, $email, $hashed_password, $pet_name);
+    $stmt->bind_param("ssssss", $name, $username, $contact, $email, $hashed_password, $securityans);
 
     if ($stmt->execute()) {
       $showSuccessPopup = true;
       // Clear form fields so they don't persist after success
-      $name = $username = $contact = $email = $pet_name = '';
+      $name = $username = $contact = $email = $securityans = '';
     } else {
       $errors[] = "Registration failed. Please try again.";
     }
@@ -122,6 +126,7 @@ if (isset($_POST['register'])) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="logreg.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <title>SioSio Login Page</title>
 </head>
 
@@ -152,8 +157,23 @@ if (isset($_POST['register'])) {
           <button type="button" class="toggle-password" onclick="togglePassword('confirm_password', this)">🙈</button>
         </div>
 
-        <input type="text" name="pet_name" placeholder="What is your pet's name?" required
-          value="<?php echo htmlspecialchars($pet_name); ?>" />
+<select id="sec_question" name="securityques" style="width: 100%" required>
+  <option value ="" disabled selected>-- Select a security question --</option>
+  <option value="nickname">What's your Childhood Nickname?</option>
+  <option value="firstpetname">What's the name of your first pet?</option>
+  <option value="favsuperhero">Who's your Favorite Superhero?</option>
+  <option value="favfood">What's your Favorite Food?</option>
+  <option value ="ysbday">What is your younger sibling's birthday?</option>
+  <option value="maidenname">What's your Mother's Maiden Name?</option>
+</select>
+
+        <input 
+        type="text" 
+        id="sec_answer" 
+        name="securityans" 
+        placeholder ="Security Answer" required
+        value="<?php echo htmlspecialchars($securityans); ?>"/>
+        
         <button type="submit" name="register">Register</button>
       </form>
     </div>
@@ -239,10 +259,11 @@ if (isset($_POST['register'])) {
       }
     });
   </script>
-
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"><script>
   <script src="logreg.js"></script>
-
 </body>
 
 </html>
+
 
