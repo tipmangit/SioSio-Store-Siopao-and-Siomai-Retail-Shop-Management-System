@@ -21,8 +21,8 @@ $isLoggedin = isset($_SESSION['valid']);
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-left">
-                    <a href="#" class="nav-link">Our Company</a>
-                    <a href="#" class="nav-link">Products</a>
+                    <a href="index.php" class="nav-link">Home</a>
+                    <a href="../products/product.php" class="nav-link">Products</a>
                 </div>
                 <div class="nav-center">
                     <h1 class="logo">Welcome, mga ka-<span class="sio-highlight">Sio</span><span class="sio-highlight">Sio</span>!</h1>
@@ -35,7 +35,7 @@ $isLoggedin = isset($_SESSION['valid']);
                             <a href="#" class="dropdown-item"><span class="sio-highlight">Sio</span>pao</a>
                         </div>
                     </div>
-                    <a href="#" class="nav-link franchise-btn">Shop Now!</a>
+                    <a href="../products/product.php" class="nav-link franchise-btn">Shop Now!</a>
                     <div class="dropdown account-dropdown">
                         <a href="#" class="nav-link account-btn">
                             <span class="account-icon">👤</span>
