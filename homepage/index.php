@@ -150,7 +150,7 @@ $isLoggedin = isset($_SESSION['valid']);
                         <div class="flavor-image">
                             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxSCl2zlIK85vMZ6nRYuWpqde6JnIxBUTe-w&s" alt="Choco Siopao">
                         </div>
-                        <h3 class="flavor-title">Chicken <span class="sio-highlight">Sio</span>pao</h3>
+                        <h3 class="flavor-title">Choco <span class="sio-highlight">Sio</span>pao</h3>
                     </div>
                     <div class="flavor-item">
                         <div class="flavor-image">
