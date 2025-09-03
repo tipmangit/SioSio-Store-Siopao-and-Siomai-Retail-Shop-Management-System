@@ -203,3 +203,8 @@ window.SioSioCart = {
     count: getCartItemCount,
     clear: clearCart
 };
+
+// Ensure header is consistent when navigating back from homepage
+window.addEventListener('focus', function() {
+    fixHeaderPosition();
+});

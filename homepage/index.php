@@ -221,7 +221,7 @@ $isLoggedin = isset($_SESSION['valid']);
             <div class="footer-content">
                 <div class="footer-logo-section">
                     <div class="footer-logo">
-                        <img src="" alt="SioSio Logo" class="logo-img">
+                        <img src="../images/siosiologo.png" alt="SioSio Logo" class="logo-img">
                     </div>
                     <p class="footer-copyright">©2025 <span class="sio-highlight">Sio</span><span class="sio-highlight">Sio</span></p>
                 </div>

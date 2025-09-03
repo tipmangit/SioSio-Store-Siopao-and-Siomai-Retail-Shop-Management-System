@@ -25,34 +25,36 @@ body {
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 2rem;
     position: relative;
 }
 
 .nav-left {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    justify-self: start;
+    gap: 1.5rem;
+    flex: 1;
 }
 
 .nav-right {
     display: flex;
     align-items: center;
     gap: 1rem;
-    justify-self: end;
+    flex: 1;
+    justify-content: flex-end;
 }
 
 .nav-center {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     z-index: 10;
+    white-space: nowrap;
 }
 
 .logo {

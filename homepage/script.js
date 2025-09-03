@@ -1,6 +1,54 @@
 // Master Siomai Website JavaScript
 
+// Fix header positioning issues
+function fixHeaderPosition() {
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        navbar.style.position = 'fixed';
+        navbar.style.top = '0';
+        navbar.style.left = '0';
+        navbar.style.right = '0';
+        navbar.style.zIndex = '1000';
+        navbar.style.width = '100%';
+    }
+    
+    const navContainer = document.querySelector('.nav-container');
+    if (navContainer) {
+        navContainer.style.display = 'flex';
+        navContainer.style.justifyContent = 'space-between';
+        navContainer.style.alignItems = 'center';
+        navContainer.style.position = 'relative';
+    }
+    
+    const navCenter = document.querySelector('.nav-center');
+    if (navCenter) {
+        navCenter.style.position = 'absolute';
+        navCenter.style.left = '50%';
+        navCenter.style.top = '50%';
+        navCenter.style.transform = 'translate(-50%, -50%)';
+        navCenter.style.zIndex = '10';
+        navCenter.style.whiteSpace = 'nowrap';
+    }
+    
+    const navLeft = document.querySelector('.nav-left');
+    if (navLeft) {
+        navLeft.style.flex = '1';
+        navLeft.style.display = 'flex';
+        navLeft.style.justifyContent = 'flex-start';
+    }
+    
+    const navRight = document.querySelector('.nav-right');
+    if (navRight) {
+        navRight.style.flex = '1';
+        navRight.style.display = 'flex';
+        navRight.style.justifyContent = 'flex-end';
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    // Fix header layout on page load
+    fixHeaderPosition();
+    
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
     
@@ -93,6 +141,26 @@ document.addEventListener('DOMContentLoaded', function() {
             menu.style.transform = 'translateY(-10px)';
         });
     });
+
+    // Update cart counter on page load
+    updateCartCounter();
+});
+
+// Cart functionality for homepage
+let cart = JSON.parse(localStorage.getItem('siosio-cart')) || [];
+
+function updateCartCounter() {
+    const cartCounter = document.querySelector('.cart-counter');
+    if (cartCounter) {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCounter.textContent = totalItems;
+        cartCounter.style.display = totalItems > 0 ? 'inline' : 'none';
+    }
+}
+
+// Ensure header is consistent when navigating back from products
+window.addEventListener('focus', function() {
+    fixHeaderPosition();
 });
 
 // Utility functions
