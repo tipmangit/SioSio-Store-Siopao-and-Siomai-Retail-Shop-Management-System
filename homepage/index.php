@@ -136,37 +136,37 @@ $isLoggedin = isset($_SESSION['valid']);
                 <div class="flavors-grid">
                     <div class="flavor-item">
                         <div class="flavor-image">
-                            <img src="" alt="Asado Siopao">
+                            <img src="https://media.istockphoto.com/id/1163708923/photo/hong-kong-style-chicken-char-siew-in-classic-polo-bun-polo-bun-or-is-a-kind-of-crunchy-and.jpg?s=612x612&w=0&k=20&c=R9DC49-UsxYUPlImX6O47LQyafOu1Cp5rNxp3XifFNI=" alt="Asado Siopao">
                         </div>
                         <h3 class="flavor-title">Asado <span class="sio-highlight">Sio</span>pao</h3>
                     </div>
                     <div class="flavor-item">
                         <div class="flavor-image">
-                            <img src="" alt="Bola-Bola Siopao">
+                            <img src="https://media.istockphoto.com/id/1184080523/photo/wanton-noodle-soup-and-siopao.jpg?s=612x612&w=0&k=20&c=oRJanjrTxICQfuzm9bXVPYkw9nKh74tcwjH1cVzXzN8=" alt="Bola-Bola Siopao">
                         </div>
                         <h3 class="flavor-title">Bola-Bola <span class="sio-highlight">Sio</span>pao</h3>
                     </div>
                     <div class="flavor-item">
                         <div class="flavor-image">
-                            <img src="" alt="Chicken Siopao">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxSCl2zlIK85vMZ6nRYuWpqde6JnIxBUTe-w&s" alt="Choco Siopao">
                         </div>
                         <h3 class="flavor-title">Chicken <span class="sio-highlight">Sio</span>pao</h3>
                     </div>
                     <div class="flavor-item">
                         <div class="flavor-image">
-                            <img src="" alt="Ube Siopao">
+                            <img src="https://media.istockphoto.com/id/2161276374/photo/vivid-steamed-purple-ube-sweet-potato-dumplings.jpg?s=612x612&w=0&k=20&c=Mb2rl1JZPvG0d5v-_gSC7Mx50DNggFJiTEcoTayqB1Q=" alt="Ube Siopao">
                         </div>
                         <h3 class="flavor-title">Ube <span class="sio-highlight">Sio</span>pao</h3>
                     </div>
                     <div class="flavor-item">
                         <div class="flavor-image">
-                            <img src="" alt="Red Bean Siopao">
+                            <img src="https://media.istockphoto.com/id/1172915611/photo/asian-steamed-bun-with-adzuki-red-bean-paste-filling-or-bakpao.jpg?s=612x612&w=0&k=20&c=hImY86ZyoR8y2FC17yLpkCA5amxrZDxCeuVokJnY5w0=" alt="Red Bean Siopao">
                         </div>
                         <h3 class="flavor-title">Red Bean <span class="sio-highlight">Sio</span>pao</h3>
                     </div>
                     <div class="flavor-item">
                         <div class="flavor-image">
-                            <img src="" alt="Custard Siopao">
+                            <img src="https://media.istockphoto.com/id/957584318/photo/chinese-steamed-bun-and-orange-sweet-creamy-lava-on-chinese-pattern-dish.jpg?s=612x612&w=0&k=20&c=5CJuHZdTLVIlN5gq_jmer--RWri-TDliTtQoIvAc97M=" alt="Custard Siopao">
                         </div>
                         <h3 class="flavor-title">Custard <span class="sio-highlight">Sio</span>pao</h3>
                     </div>
