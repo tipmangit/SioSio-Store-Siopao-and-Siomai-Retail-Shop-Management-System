@@ -178,7 +178,7 @@ $isLoggedin = isset($_SESSION['valid']);
             <div class="container">
                 <div class="contact-wrapper">
                     <div class="contact-image">
-                        <img src="" alt="Contact Us Image" class="contact-img">
+                        <img src="../images/mascot.png" alt="Contact Us Image" class="contact-img">
                     </div>
                     <div class="contact-form-container">
                         <h2 class="contact-title">Message Us</h2>
