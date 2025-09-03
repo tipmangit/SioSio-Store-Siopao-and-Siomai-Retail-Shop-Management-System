@@ -92,37 +92,37 @@ $isLoggedin = isset($_SESSION['valid']);
                 <div class="flavors-grid">
                     <div class="flavor-item">
                         <div class="flavor-image">
-                            <img src="" alt="Pork & Shrimp Siomai">
+                            <img src="https://media.istockphoto.com/id/2182583656/photo/chinese-steamed-dumpling-or-shumai-in-japanese-language-meatball-dumpling-with-wanton-skin.jpg?s=612x612&w=0&k=20&c=0K7_ee0dwfAZhcZZajZRSv8uTifXZhG6LVmlKnSe-0U=" alt="Pork & Shrimp Siomai">
                         </div>
                         <h3 class="flavor-title">Pork <span class="sio-highlight">Sio</span>mai</h3>
                     </div>
                     <div class="flavor-item">
                         <div class="flavor-image">
-                            <img src="" alt="Chicken Siomai">
+                            <img src="https://media.istockphoto.com/id/1336438874/photo/delicious-dim-sum-home-made-chinese-dumplings-served-on-plate.jpg?s=612x612&w=0&k=20&c=11KB0bXoZeMrlzaHN2q9aZq8kqtdvp-d4Oggc2TF8M4=" alt="Chicken Siomai">
                         </div>
                         <h3 class="flavor-title">Chicken <span class="sio-highlight">Sio</span>mai</h3>
                     </div>
                     <div class="flavor-item">
                         <div class="flavor-image">
-                            <img src="" alt="Beef Siomai">
+                            <img src="https://media.istockphoto.com/id/2189370578/photo/delicious-shumai-shumay-siomay-chicken-in-bowl-snack-menu.jpg?s=612x612&w=0&k=20&c=hD4kuZsiGIjgyUPq-seqv229pFE43CnS0Do3EH_2E_Y=" alt="Beef Siomai">
                         </div>
                         <h3 class="flavor-title">Beef <span class="sio-highlight">Sio</span>mai</h3>
                     </div>
                     <div class="flavor-item">
                         <div class="flavor-image">
-                            <img src="" alt="Tuna Siomai">
+                            <img src="https://media.istockphoto.com/id/1084916088/photo/close-up-cooking-homemade-shumai.jpg?s=612x612&w=0&k=20&c=M1RyWV62MACQffBC40UzZ_h-BsXOj4bkaMBrxnbMTzc=" alt="Tuna Siomai">
                         </div>
                         <h3 class="flavor-title">Tuna <span class="sio-highlight">Sio</span>mai</h3>
                     </div>
                     <div class="flavor-item">
                         <div class="flavor-image">
-                            <img src="" alt="Shark's Fin Siomai">
+                            <img src="https://media.istockphoto.com/id/1330456626/photo/steamed-shark-fin-dumplings-served-with-chili-garlic-oil-and-calamansi.jpg?s=612x612&w=0&k=20&c=9Zi1JmbwvYtIlZJqZb6tHOVC21rS-IbwZXS-IeflE30=" alt="Shark's Fin Siomai">
                         </div>
                         <h3 class="flavor-title">Shark's Fin <span class="sio-highlight">Sio</span>mai</h3>
                     </div>
                     <div class="flavor-item">
                         <div class="flavor-image">
-                            <img src="" alt="Japanese Siomai">
+                            <img src="https://media.istockphoto.com/id/1221287744/photo/ground-pork-with-crab-stick-wrapped-in-nori.jpg?s=612x612&w=0&k=20&c=Rniq7tdyCqVZHpwngsbzOk1dG1u8pTEeUDE8arsfOUY=" alt="Japanese Siomai">
                         </div>
                         <h3 class="flavor-title">Japanese <span class="sio-highlight">Sio</span>mai</h3>
                     </div>
