@@ -34,9 +34,7 @@ CREATE TABLE `users` (
   `password` varchar(250) NOT NULL,
   `contact` varchar(25) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `security_answer1` varchar(200) NOT NULL,
-  `security_asnwer2` varchar(200) NOT NULL,
-  `security_asnwer3` varchar(200) NOT NULL,
+  `security_answer` varchar(200) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
