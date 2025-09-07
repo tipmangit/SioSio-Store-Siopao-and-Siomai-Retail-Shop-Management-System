@@ -135,52 +135,29 @@ function showCartNotification(productName) {
     }, 3000);
 }
 
-// Event listeners
-document.addEventListener('DOMContentLoaded', function() {
-    // Fix header positioning immediately
-    fixHeaderPosition();
-    
-    // Add click event to all "Add to Cart" buttons
-    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
-    
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const productName = this.getAttribute('data-product');
-            const price = this.getAttribute('data-price');
-            
-            // Add loading state
-            const originalText = this.textContent;
-            this.textContent = 'Adding...';
-            this.disabled = true;
-            
-            // Simulate loading time
-            setTimeout(() => {
-                addToCart(productName, price);
-                this.textContent = originalText;
-                this.disabled = false;
-            }, 500);
-        });
-    });
-    
-    // Update cart display on page load
-    updateCartDisplay();
-    
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-});
+// Sort products by price within a section
+function sortProductsByPrice(sectionId, order) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    const grid = section.querySelector('.flavors-grid');
+    if (!grid) return;
+    const items = Array.from(grid.querySelectorAll('.product-item'));
 
-// Cart utility functions
+    // Only sort if price exists
+    items.sort((a, b) => {
+        const priceA = parseFloat(a.querySelector('.product-price')?.textContent.replace(/[^\d.]/g, '') || 0);
+        const priceB = parseFloat(b.querySelector('.product-price')?.textContent.replace(/[^\d.]/g, '') || 0);
+        return order === 'min-max' ? priceA - priceB : priceB - priceA;
+    });
+
+    // Remove all items from grid
+    items.forEach(item => grid.removeChild(item));
+
+    // Add sorted items back to grid
+    items.forEach(item => grid.appendChild(item));
+}
+
+// Utility functions for cart
 function getCartTotal() {
     return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
 }
@@ -208,3 +185,57 @@ window.SioSioCart = {
 window.addEventListener('focus', function() {
     fixHeaderPosition();
 });
+
+// DOMContentLoaded: All event listeners and initializations
+document.addEventListener('DOMContentLoaded', function() {
+    // Fix header positioning immediately
+    fixHeaderPosition();
+    
+    // Add click event to all "Add to Cart" buttons
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const productName = this.getAttribute('data-product');
+            const price = this.getAttribute('data-price');
+            // Add loading state
+            const originalText = this.textContent;
+            this.textContent = 'Adding...';
+            this.disabled = true;
+            setTimeout(() => {
+                addToCart(productName, price);
+                this.textContent = originalText;
+                this.disabled = false;
+            }, 500);
+        });
+    });
+    
+    // Update cart display on page load
+    updateCartDisplay();
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // SORTING FUNCTIONALITY
+    const sortBtn = document.getElementById('sort-price-btn');
+    const sortSelect = document.getElementById('price-sort');
+    if (sortBtn && sortSelect) {
+        sortBtn.addEventListener('click', function() {
+            const order = sortSelect.value;
+            sortProductsByPrice('siomai-section', order);
+            sortProductsByPrice('siopao-section', order);
+        });
+    }
+});
+
+// ...existing code...
