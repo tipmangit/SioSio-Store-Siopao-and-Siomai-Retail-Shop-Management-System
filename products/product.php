@@ -85,6 +85,15 @@ $isLoggedin = isset($_SESSION['valid']);
             </div>
         </section>
 
+       <div class="container" style="display: flex; justify-content: center; align-items: center; margin-top: 30px;">
+    <label for="price-sort">Sort by Price:</label>
+    <select id="price-sort" style="margin-left:10px; border-radius:5px; padding:0.3rem 0.6rem;">
+        <option value="min-max">Min - Max</option>
+        <option value="max-min">Max - Min</option>
+    </select>
+    <button id="sort-price-btn" class="nav-link" style="margin-left:10px;">Sort</button>
+</div>
+
           <section id="siomai-section" class="flavors">
             <div class="container">
                 <h2 class="section-title"><span class="sio-highlight">Sio</span>mai Flavors</h2>
