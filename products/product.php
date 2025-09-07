@@ -308,6 +308,6 @@ $isLoggedin = isset($_SESSION['valid']);
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="product.js"></script>
 </body>
 </html>
