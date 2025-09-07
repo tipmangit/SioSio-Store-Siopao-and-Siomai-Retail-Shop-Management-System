@@ -16,6 +16,7 @@ $isLoggedin = isset($_SESSION['valid']);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Joti+One&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <nav class="navbar">
@@ -29,10 +30,10 @@ $isLoggedin = isset($_SESSION['valid']);
                 </div>
                 <div class="nav-right">
                     <div class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle">Menu ▼</a>
+                       <a href="#" class="nav-link dropdown-toggle">Menu ▼</a>
                         <div class="dropdown-menu">
-                            <a href="#" class="dropdown-item"><span class="sio-highlight">Sio</span>mai</a>
-                            <a href="#" class="dropdown-item"><span class="sio-highlight">Sio</span>pao</a>
+                            <a href="#siomai-section" class="dropdown-item"><span class="sio-highlight">Sio</span>mai</a>
+                            <a href="#siopao-section" class="dropdown-item"><span class="sio-highlight">Sio</span>pao</a>
                         </div>
                     </div>
                     <a href="../products/product.php" class="nav-link franchise-btn">Shop Now!</a>
@@ -42,7 +43,7 @@ $isLoggedin = isset($_SESSION['valid']);
                         </a>
                         <div class="dropdown-menu account-menu">
                             <?php if($isLoggedin): ?>
-                                <a href="#" class="dropdown-item">Sign Out</a>
+                                 <a href="../logout.php" class="dropdown-item">Log Out</a>
                                 <a href="#" class="dropdown-item">My Orders</a>
                                 <a href="#" class="dropdown-item">Profile</a>
                                 <hr class="dropdown-divider">
@@ -57,15 +58,19 @@ $isLoggedin = isset($_SESSION['valid']);
                             <?php endif; ?>
                         </div>
                     </div>
+
                     <?php if($isLoggedin): ?>
                         <span class="welcome-message" style="margin-left:10px;">
                             Welcome, <?php echo htmlspecialchars($_SESSION['valid']); ?>
                         </span>
                     <?php endif; ?>
-                    <a href="cart.php" class="nav-link cart-link" style="margin-left:10px; font-size:1.5em;">
+                    <a href="../cart/cart.php" class="nav-link cart-link" style="margin-left:10px; font-size:1.5em;">
                         <!-- Unicode cart icon for visibility -->
                         &#128722;
                     </a>
+                        <!-- Search -->
+                        <input type="text" id="nav-search-input" class="nav-search-input" placeholder="Search...">
+                        <button type="button" class="nav-link nav-search-btn" id="nav-search-btn">Search</button>
                 </div>
             </div>
         </nav>

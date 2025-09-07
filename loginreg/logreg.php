@@ -130,6 +130,9 @@ if (isset($_POST['register'])) {
 </head>
 
 <body>
+
+    
+
   <div class="container<?php echo (!empty($errors) && isset($_POST['register'])) ? ' active' : ''; ?>" id="container">
 
     <!-- Register Form -->

@@ -23,30 +23,20 @@ body {
 }
 
 .nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
+    padding: 0 2rem ;    
+    /* max-width, margin, padding as needed */
 }
-
+ 
 .nav-left {
     display: flex;
     align-items: center;
     gap: 1.5rem;
     flex: 1;
 }
-
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex: 1;
-    justify-content: flex-end;
-}
-
 .nav-center {
     position: absolute;
     left: 50%;
@@ -56,6 +46,41 @@ body {
     z-index: 10;
     white-space: nowrap;
 }
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: auto; 
+    justify-content: flex-end;
+   
+}
+
+.page-header {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4rem 0 2rem 0;
+    text-align: center;
+    position: relative;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+
 
 .logo {
     color: white;
@@ -76,6 +101,32 @@ body {
     font-size: 1rem;
     transition: color 0.3s ease;
     position: relative;
+}
+.nav-search-input {
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    margin-left: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.nav-search-input:focus {
+    border-color: #dc3545;
+}
+.nav-search-btn {
+    margin-left: 4px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 4px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background 0.2s;
+}
+.nav-search-btn:hover {
+    background: #c82333;
 }
 
 .welcome-message {
@@ -176,11 +227,12 @@ body {
     margin: 0.5rem 0;
 }
 
+
 /* Hero Section */
 .hero {
     height: 100vh;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
-                url('https://media.istockphoto.com/id/849436160/photo/dumplings-being-steamed-on-bamboo-pan-traditional.jpg?s=612x612&w=0&k=20&c=-ymQeT_gpL4v9h3mqBDgPmOz663vTrWwH5yn9Gf-whY=');
+                url('../images/Homebg.jpg');
     background-size: cover;
     background-position: center;
     display: flex;

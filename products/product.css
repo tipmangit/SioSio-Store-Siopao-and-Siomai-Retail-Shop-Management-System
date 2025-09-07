@@ -81,6 +81,7 @@ body {
     margin: 0 auto;
 }
 
+
 /* Enhanced Product Items */
 .product-item {
     background: white;
@@ -166,6 +167,161 @@ body {
 .cart-notification.show {
     opacity: 1;
     transform: translateX(0);
+}
+
+/* Footer */
+.footer {
+    background: #1a1a1a;
+    color: #ccc;
+    padding: 3rem 0 1rem 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-logo {
+    width: 80px;
+    height: 80px;
+    background: #333;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #dc3545;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.footer-logo:empty::before {
+    content: "LOGO";
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.footer-copyright {
+    color: #999;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-title {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-list li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-link {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #dc3545;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background: #333;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.social-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.social-link.facebook:hover {
+    background: #1877f2;
+}
+
+.social-link.instagram:hover {
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+}
+
+.social-link.twitter:hover {
+    background: #000000;
+}
+
+.social-icon {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.footer-legal {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.legal-link {
+    color: #999;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.legal-link:hover {
+    color: #dc3545;
 }
 
 /* Responsive Design for Products */

@@ -10,23 +10,25 @@ $isLoggedin = isset($_SESSION['valid']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SioSio - Products</title>
-    <link rel="stylesheet" href="../homepage/style.css">
-    <link rel="stylesheet" href="product.css">
+    <title>SioSio</title>
+    <link rel="stylesheet" href="Products.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Joti+One&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-left">
                     <a href="../homepage/index.php" class="nav-link">Home</a>
-                    <a href="product.php" class="nav-link">Products</a>
+                    <a href="../products/product.php" class="nav-link">Products</a>
                 </div>
                 <div class="nav-center">
-                    <h1 class="logo">Welcome, mga ka-<span class="sio-highlight">Sio</span><span class="sio-highlight">Sio</span>!</h1>
+                    <h1 class="logo">
+                        Welcome, mga ka-<span class="sio-highlight">Sio</span><span class="sio-highlight">Sio</span>!
+                    </h1>
                 </div>
                 <div class="nav-right">
                     <div class="dropdown">
@@ -36,14 +38,14 @@ $isLoggedin = isset($_SESSION['valid']);
                             <a href="#siopao-section" class="dropdown-item"><span class="sio-highlight">Sio</span>pao</a>
                         </div>
                     </div>
-                    <a href="../homepage/index.php" class="nav-link franchise-btn">Back to Home</a>
+                    <a href="../homepage/index.php" class="nav-link franchise-btn">Back To Home</a>
                     <div class="dropdown account-dropdown">
                         <a href="#" class="nav-link account-btn">
                             <span class="account-icon">👤</span>
                         </a>
                         <div class="dropdown-menu account-menu">
                             <?php if($isLoggedin): ?>
-                                <a href="#" class="dropdown-item">Sign Out</a>
+                                <a href="../logout.php" class="dropdown-item">Log Out</a>
                                 <a href="#" class="dropdown-item">My Orders</a>
                                 <a href="#" class="dropdown-item">Profile</a>
                                 <hr class="dropdown-divider">
@@ -58,20 +60,25 @@ $isLoggedin = isset($_SESSION['valid']);
                             <?php endif; ?>
                         </div>
                     </div>
+
                     <?php if($isLoggedin): ?>
                         <span class="welcome-message" style="margin-left:10px;">
                             Welcome, <?php echo htmlspecialchars($_SESSION['valid']); ?>
                         </span>
                     <?php endif; ?>
-                    <a href="cart.php" class="nav-link cart-link" style="margin-left:10px; font-size:1.5em;">
+                    <a href="../cart/cart.php" class="nav-link cart-link" style="margin-left:10px; font-size:1.5em;">
+                        <!-- Unicode cart icon for visibility -->
                         &#128722;
                     </a>
+                        <!-- Search -->
+                        <input type="text" id="nav-search-input" class="nav-search-input" placeholder="Search...">
+                        <button type="button" class="nav-link nav-search-btn" id="nav-search-btn">Search</button>
                 </div>
             </div>
         </nav>
     </header>
 
-    <main style="padding-top: 120px;">
+   <main style="padding-top: 70px;">
         <section class="page-header">
             <div class="container">
                 <h1 class="page-title">Our <span class="sio-highlight">Sio</span>mai & <span class="sio-highlight">Sio</span>pao Products</h1>
@@ -79,7 +86,7 @@ $isLoggedin = isset($_SESSION['valid']);
             </div>
         </section>
 
-        <section id="siomai-section" class="flavors">
+          <section id="siomai-section" class="flavors">
             <div class="container">
                 <h2 class="section-title"><span class="sio-highlight">Sio</span>mai Flavors</h2>
                 <div class="flavors-grid">
@@ -226,6 +233,7 @@ $isLoggedin = isset($_SESSION['valid']);
                 </div>
             </div>
         </section>
+
     </main>
 
     <footer class="footer">
@@ -233,7 +241,7 @@ $isLoggedin = isset($_SESSION['valid']);
             <div class="footer-content">
                 <div class="footer-logo-section">
                     <div class="footer-logo">
-                        <img src="" alt="SioSio Logo" class="logo-img">
+                        <img src="../images/siosiologo.png" alt="SioSio Logo" class="logo-img">
                     </div>
                     <p class="footer-copyright">©2025 <span class="sio-highlight">Sio</span><span class="sio-highlight">Sio</span></p>
                 </div>
@@ -242,8 +250,8 @@ $isLoggedin = isset($_SESSION['valid']);
                     <div class="footer-column">
                         <h3 class="footer-title">Quick Links</h3>
                         <ul class="footer-list">
-                            <li><a href="../homepage/index.php" class="footer-link">Home</a></li>
-                            <li><a href="product.php" class="footer-link">Products</a></li>
+                            <li><a href="#" class="footer-link">Home</a></li>
+                            <li><a href="#" class="footer-link">Products</a></li>
                             <li><a href="#" class="footer-link">Our Company</a></li>
                             <li><a href="#" class="footer-link">Contact</a></li>
                         </ul>
@@ -252,10 +260,19 @@ $isLoggedin = isset($_SESSION['valid']);
                     <div class="footer-column">
                         <h3 class="footer-title">Menu</h3>
                         <ul class="footer-list">
-                            <li><a href="#siomai-section" class="footer-link"> <span class="sio-highlight">Sio</span>mai</a></li>
-                            <li><a href="#siopao-section" class="footer-link"><span class="sio-highlight">Sio</span>pao</a></li>
+                            <li><a href="#" class="footer-link"> <span class="sio-highlight">Sio</span>mai</a></li>
+                            <li><a href="#" class="footer-link"><span class="sio-highlight">Sio</span>pao</a></li>
                         </ul>
                     </div>
+                    
+                    <!-- <div class="footer-column">
+                        <h3 class="footer-title">Brands</h3>
+                        <ul class="footer-list">
+                            <li><a href="#" class="footer-link">GreaTaste <span class="sio-highlight">Sio</span>mai</a></li>
+                            <li><a href="#" class="footer-link">Master Choice</a></li>
+                            <li><a href="#" class="footer-link">Master <span class="sio-highlight">Sio</span>pao</a></li>
+                        </ul>
+                    </div> -->
                     
                     <div class="footer-column">
                         <h3 class="footer-title">Follow us:</h3>
@@ -283,6 +300,6 @@ $isLoggedin = isset($_SESSION['valid']);
         </div>
     </footer>
 
-    <script src="product.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
