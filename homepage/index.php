@@ -3,7 +3,7 @@ include("../config.php");
 session_start();
 
 $isLoggedin = isset($_SESSION['valid']);
-?>
+?>  
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@ $isLoggedin = isset($_SESSION['valid']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SioSio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Joti+One&display=swap" rel="stylesheet">
@@ -26,11 +26,13 @@ $isLoggedin = isset($_SESSION['valid']);
                     <a href="../products/product.php" class="nav-link">Products</a>
                 </div>
                 <div class="nav-center">
-                    <h1 class="logo">Welcome, mga ka-<span class="sio-highlight">Sio</span><span class="sio-highlight">Sio</span>!</h1>
+                    <h1 class="logo">
+                        Welcome, mga ka-<span class="sio-highlight">Sio</span><span class="sio-highlight">Sio</span>!
+                    </h1>
                 </div>
                 <div class="nav-right">
                     <div class="dropdown">
-                       <a href="#" class="nav-link dropdown-toggle">Menu ▼</a>
+                        <a href="#" class="nav-link dropdown-toggle">Menu ▼</a>
                         <div class="dropdown-menu">
                             <a href="#siomai-section" class="dropdown-item"><span class="sio-highlight">Sio</span>mai</a>
                             <a href="#siopao-section" class="dropdown-item"><span class="sio-highlight">Sio</span>pao</a>
@@ -60,17 +62,16 @@ $isLoggedin = isset($_SESSION['valid']);
                     </div>
 
                     <?php if($isLoggedin): ?>
-                        <span class="welcome-message" style="margin-left:10px;">
+                        <span class="welcome-message">
                             Welcome, <?php echo htmlspecialchars($_SESSION['valid']); ?>
                         </span>
                     <?php endif; ?>
-                    <a href="../cart/cart.php" class="nav-link cart-link" style="margin-left:10px; font-size:1.5em;">
-                        <!-- Unicode cart icon for visibility -->
+                    <a href="../cart/cart.php" class="nav-link cart-link">
                         &#128722;
                     </a>
-                        <!-- Search -->
-                        <input type="text" id="nav-search-input" class="nav-search-input" placeholder="Search...">
-                        <button type="button" class="nav-link nav-search-btn" id="nav-search-btn">Search</button>
+                    <!-- Search -->
+                    <input type="text" id="nav-search-input" class="nav-search-input" placeholder="Search...">
+                    <button type="button" class="nav-link nav-search-btn" id="nav-search-btn">Search</button>
                 </div>
             </div>
         </nav>
