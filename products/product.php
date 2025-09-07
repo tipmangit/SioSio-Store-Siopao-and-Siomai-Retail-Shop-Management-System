@@ -11,6 +11,7 @@ $isLoggedin = isset($_SESSION['valid']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SioSio</title>
+    <link rel="stylesheet" href="Products.css">
     <link rel="stylesheet" href="Products.css?v=<?php echo time(); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,14 +63,15 @@ $isLoggedin = isset($_SESSION['valid']);
                     </div>
 
                     <?php if($isLoggedin): ?>
-                        <span class="welcome-message">
+                         <span class="welcome-message">
                             Welcome, <?php echo htmlspecialchars($_SESSION['valid']); ?>
                         </span>
                     <?php endif; ?>
                     <a href="../cart/cart.php" class="nav-link cart-link">
+                        <!-- Unicode cart icon for visibility -->
                         &#128722;
                     </a>
-                    <!-- Search -->
+                         <!-- Search -->
                     <input type="text" id="nav-search-input" class="nav-search-input" placeholder="Search...">
                     <button type="button" class="nav-link nav-search-btn" id="nav-search-btn">Search</button>
                 </div>
@@ -84,12 +86,13 @@ $isLoggedin = isset($_SESSION['valid']);
                 <p class="page-subtitle">Choose from our delicious selection of authentic Filipino favorites</p>
             </div>
         </section>
+        
 
-       <div class="container" style="display: flex; justify-content: center; align-items: center; margin-top: 30px;">
+<div class="container" style="display: flex; justify-content: center; align-items: center; margin-top: 30px;">
     <label for="price-sort">Sort by Price:</label>
     <select id="price-sort" style="margin-left:10px; border-radius:5px; padding:0.3rem 0.6rem;">
-        <option value="min-max">Min - Max</option>
-        <option value="max-min">Max - Min</option>
+        <option value="min-max">Low - High</option>
+        <option value="max-min">High - Low</option>
     </select>
     <button id="sort-price-btn" class="nav-link" style="margin-left:10px;">Sort</button>
 </div>
