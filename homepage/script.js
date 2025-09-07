@@ -80,6 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Mobile menu toggle (if needed for future expansion)
+    // DISABLED: Bootstrap already handles mobile navigation with navbar-toggler
+    /*
     const createMobileMenu = () => {
         const navContainer = document.querySelector('.nav-container');
         const mobileMenuBtn = document.createElement('button');
@@ -108,6 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize mobile menu
     createMobileMenu();
+    */
 
     // Add animation to hero elements
     const heroElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-tagline');

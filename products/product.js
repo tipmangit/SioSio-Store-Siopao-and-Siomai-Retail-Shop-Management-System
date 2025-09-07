@@ -2,15 +2,27 @@
 function sortProductsByPrice(sectionId, order) {
     const section = document.getElementById(sectionId);
     if (!section) return false;
-    const grid = section.querySelector('.flavors-grid');
+    
+    // Look for the Bootstrap row container instead of .flavors-grid
+    const grid = section.querySelector('.row.g-4');
     if (!grid) return false;
-    const items = Array.from(grid.querySelectorAll('.product-item'));
+    
+    // Get all product items (the individual column containers)
+    const items = Array.from(grid.querySelectorAll('.col-lg-4'));
     if (items.length === 0) return false;
+    
     items.sort((a, b) => {
-        const priceA = parseFloat(a.querySelector('.product-price').textContent.replace(/[₱\s,]/g, '')) || 0;
-        const priceB = parseFloat(b.querySelector('.product-price').textContent.replace(/[₱\s,]/g, '')) || 0;
+        // Look for the price in the Bootstrap structure: p.text-primary.fw-bold
+        const priceElementA = a.querySelector('.text-primary.fw-bold');
+        const priceElementB = b.querySelector('.text-primary.fw-bold');
+        
+        const priceA = priceElementA ? parseFloat(priceElementA.textContent.replace(/[₱\s,]/g, '')) || 0 : 0;
+        const priceB = priceElementB ? parseFloat(priceElementB.textContent.replace(/[₱\s,]/g, '')) || 0 : 0;
+        
         return order === 'min-max' ? priceA - priceB : priceB - priceA;
     });
+    
+    // Clear and re-append sorted items
     grid.innerHTML = '';
     items.forEach(item => grid.appendChild(item));
     return true;

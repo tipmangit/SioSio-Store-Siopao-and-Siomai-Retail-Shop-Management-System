@@ -1,0 +1,95 @@
+
+/* Center navbar title perfectly */
+.navbar .navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+/* Ensure nav elements don't overlap with centered title */
+.nav-container {
+    position: relative;
+}
+
+@media (max-width: 991.98px) {
+    /* On mobile, remove absolute positioning to allow normal flow */
+    .navbar .navbar-brand {
+        position: static;
+        transform: none;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .nav-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbar-toggler {
+        order: 1;
+    }
+
+    .navbar-brand {
+        order: 2;
+        flex-grow: 1;
+        text-align: center;
+        margin: 0 10px; /* Add some space */
+    }
+    
+    .navbar-brand .logo {
+        font-size: 1rem; /* Smaller font on mobile */
+        white-space: nowrap;
+    }
+
+    .nav-right {
+        order: 3;
+    }
+
+    /* Hide desktop nav and move mobile nav to take full width */
+    .nav-left {
+        display: none !important;
+    }
+
+    #navbarNav {
+        order: 4;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* In nav-right, hide desktop-specific items */
+    .nav-right .d-none.d-lg-block,
+    .nav-right .d-none.d-lg-inline {
+        display: none !important;
+    }
+    
+    /* Adjust search for mobile */
+    .nav-search-input {
+        max-width: 100px; /* Make search smaller */
+    }
+    .nav-search-btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Footer Fixes */
+@media (max-width: 767.98px) {
+    .footer-main {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-column {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+

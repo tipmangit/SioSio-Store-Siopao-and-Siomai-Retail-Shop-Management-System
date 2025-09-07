@@ -11,72 +11,214 @@ $isLoggedin = isset($_SESSION['valid']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SioSio</title>
+    <!-- Bootstrap 5.3.2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom Bootstrap Styles (exact same ones used in products page) -->
+    <link rel="stylesheet" href="../products/bootstrap-custom.css">
+    <link rel="stylesheet" href="../products/custom.css">
+    <!-- Original Custom CSS with lower priority than Bootstrap styles -->
     <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Joti+One&display=swap" rel="stylesheet">
+    
+    <!-- Override any conflicting styles -->
+    <style>
+  /* Center navbar title perfectly */
+.navbar .navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+/* Ensure nav elements don't overlap with centered title */
+.nav-container {
+    position: relative;
+}
+
+@media (max-width: 991.98px) {
+    /* On mobile, remove absolute positioning to allow normal flow */
+    .navbar .navbar-brand {
+        position: static;
+        transform: none;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .nav-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbar-toggler {
+        order: 1;
+    }
+
+    .navbar-brand {
+        order: 2;
+        flex-grow: 1;
+        text-align: center;
+        margin: 0 10px; /* Add some space */
+    }
+    
+    .navbar-brand .logo {
+        font-size: 1rem; /* Smaller font on mobile */
+        white-space: nowrap;
+    }
+
+    .nav-right {
+        order: 3;
+    }
+
+    /* Hide desktop nav and move mobile nav to take full width */
+    .nav-left {
+        display: none !important;
+    }
+
+    #navbarNav {
+        order: 4;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* In nav-right, hide desktop-specific items */
+    .nav-right .d-none.d-lg-block,
+    .nav-right .d-none.d-lg-inline {
+        display: none !important;
+    }
+    
+    /* Adjust search for mobile */
+    .nav-search-input {
+        max-width: 100px; /* Make search smaller */
+    }
+    .nav-search-btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+    }
+}
+
+/* Footer Fixes */
+@media (max-width: 767.98px) {
+    .footer-main {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-column {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+
+    </style>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-left">
-                    <a href="index.php" class="nav-link">Home</a>
-                    <a href="../products/product.php" class="nav-link">Products</a>
-                </div>
-                <div class="nav-center">
-                    <h1 class="logo">
-                        Welcome, mga ka-<span class="sio-highlight">Sio</span><span class="sio-highlight">Sio</span>!
-                    </h1>
-                </div>
-                <div class="nav-right">
-                    <div class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle">Menu ▼</a>
-                        <div class="dropdown-menu">
-                            <a href="#siomai-section" class="dropdown-item"><span class="sio-highlight">Sio</span>mai</a>
-                            <a href="#siopao-section" class="dropdown-item"><span class="sio-highlight">Sio</span>pao</a>
-                        </div>
+    <!-- Original Design Navbar with Bootstrap Responsiveness (Matching Products Page) -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid nav-container">
+            <!-- Center Logo -->
+            <a class="navbar-brand mx-auto" href="index.php">
+                <h1 class="logo mb-0">
+                    Welcome, mga ka-<span class="sio-highlight">Sio</span><span class="sio-highlight">Sio</span>!
+                </h1>
+            </a>
+            
+            <!-- Single Mobile hamburger button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Left Navigation (Desktop) -->
+            <div class="nav-left d-none d-lg-flex">
+                <a href="index.php" class="nav-link">Home</a>
+                <a href="../products/product.php" class="nav-link">Products</a>
+            </div>
+            
+            <!-- Collapsible navbar content (for both mobile and right-aligned desktop items) -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <!-- Mobile-only nav links -->
+                <ul class="navbar-nav d-lg-none">
+                    <li class="nav-item">
+                        <a href="index.php" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../products/product.php" class="nav-link">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#siomai-section"><span class="sio-highlight">Sio</span>mai</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#siopao-section"><span class="sio-highlight">Sio</span>pao</a>
+                    </li>
+                </ul>
+
+                <!-- Right Navigation (collapses on mobile) -->
+                <div class="nav-right d-flex align-items-center ms-auto gap-2">
+                    <!-- Desktop Menu Dropdown -->
+                    <div class="dropdown d-none d-lg-block">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#siomai-section" class="dropdown-item"><span class="sio-highlight">Sio</span>mai</a></li>
+                            <li><a href="#siopao-section" class="dropdown-item"><span class="sio-highlight">Sio</span>pao</a></li>
+                        </ul>
                     </div>
-                    <a href="../products/product.php" class="nav-link franchise-btn">Shop Now!</a>
+                    
+                    <a href="../products/product.php" class="nav-link franchise-btn d-none d-lg-inline">Shop Now!</a>
+                    
+                    <!-- Account Dropdown -->
                     <div class="dropdown account-dropdown">
-                        <a href="#" class="nav-link account-btn">
+                        <a href="#" class="nav-link account-btn" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="account-icon">👤</span>
                         </a>
-                        <div class="dropdown-menu account-menu">
+                        <ul class="dropdown-menu account-menu dropdown-menu-end">
                             <?php if($isLoggedin): ?>
-                                 <a href="../logout.php" class="dropdown-item">Log Out</a>
-                                <a href="#" class="dropdown-item">My Orders</a>
-                                <a href="#" class="dropdown-item">Profile</a>
-                                <hr class="dropdown-divider">
-                                <a href="#" class="dropdown-item">Help & Support</a>
+                                <li><a href="../logout.php" class="dropdown-item">Log Out</a></li>
+                                <li><a href="#" class="dropdown-item">My Orders</a></li>
+                                <li><a href="#" class="dropdown-item">Profile</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a href="#" class="dropdown-item">Help & Support</a></li>
                             <?php else: ?>
-                                <a href="../loginreg/logreg.php" class="dropdown-item">Sign In</a>
-                                <a href="#" class="dropdown-item">Create Account</a>
-                                <a href="#" class="dropdown-item">My Orders</a>
-                                <a href="#" class="dropdown-item">Profile</a>
-                                <hr class="dropdown-divider">
-                                <a href="#" class="dropdown-item">Help & Support</a>
+                                <li><a href="../loginreg/logreg.php" class="dropdown-item">Sign In</a></li>
+                                <li><a href="#" class="dropdown-item">Create Account</a></li>
+                                <li><a href="#" class="dropdown-item">My Orders</a></li>
+                                <li><a href="#" class="dropdown-item">Profile</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a href="#" class="dropdown-item">Help & Support</a></li>
                             <?php endif; ?>
-                        </div>
+                        </ul>
                     </div>
 
                     <?php if($isLoggedin): ?>
-                        <span class="welcome-message">
+                        <span class="welcome-message d-none d-md-inline">
                             Welcome, <?php echo htmlspecialchars($_SESSION['valid']); ?>
                         </span>
                     <?php endif; ?>
+                    
                     <a href="../cart/cart.php" class="nav-link cart-link">
                         &#128722;
                     </a>
+                    
                     <!-- Search -->
                     <input type="text" id="nav-search-input" class="nav-search-input" placeholder="Search...">
                     <button type="button" class="nav-link nav-search-btn" id="nav-search-btn">Search</button>
                 </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
+    <!-- Main Content -->
     <main>
         <section class="hero">
             <div class="hero-overlay"></div>
@@ -286,6 +428,8 @@ $isLoggedin = isset($_SESSION['valid']);
         </div>
     </footer>
 
+    <!-- Bootstrap 5.3.2 JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 </html>
