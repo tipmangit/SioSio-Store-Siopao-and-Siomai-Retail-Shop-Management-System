@@ -87,15 +87,17 @@ $isLoggedin = isset($_SESSION['valid']);
             </div>
         </section>
         
-
-<div class="container" style="display: flex; justify-content: center; align-items: center; margin-top: 30px;">
-    <label for="price-sort">Sort by Price:</label>
-    <select id="price-sort" style="margin-left:10px; border-radius:5px; padding:0.3rem 0.6rem;">
-        <option value="min-max">Low - High</option>
-        <option value="max-min">High - Low</option>
-    </select>
-    <button id="sort-price-btn" class="nav-link" style="margin-left:10px;">Sort</button>
-</div>
+        <!-- Sorting Controls -->
+        <div class="sorting-container">
+            <div class="container" style="display: flex; justify-content: center; align-items: center; margin: 30px auto; padding: 20px; background: #f8f9fa; border-radius: 10px; max-width: 400px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+                <label for="price-sort" style="font-weight: 600; color: #333; margin-right: 15px;">Sort by Price:</label>
+                <select id="price-sort" style="margin-right: 15px; border-radius: 5px; padding: 0.5rem 1rem; border: 1px solid #ddd; font-size: 1rem;">
+                    <option value="min-max">Low to High</option>
+                    <option value="max-min">High to Low</option>
+                </select>
+                <button id="sort-price-btn" class="nav-link" style="margin: 0;">Sort</button>
+            </div>
+        </div>
 
           <section id="siomai-section" class="flavors">
             <div class="container">

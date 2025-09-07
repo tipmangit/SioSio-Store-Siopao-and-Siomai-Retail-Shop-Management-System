@@ -645,6 +645,17 @@ body {
     box-shadow: 0 6px 20px rgba(220,53,69,0.28);
 }
 
+#sort-price-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+#sort-price-btn:disabled:hover {
+    background: #ccc;
+    box-shadow: none;
+}
+
 
 /* Add to Cart Button */
 .add-to-cart-btn {
