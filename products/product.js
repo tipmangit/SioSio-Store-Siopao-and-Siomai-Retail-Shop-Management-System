@@ -32,6 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 sortBtn.disabled = false;
             }, 300);
         });
-        sortSelect.addEventListener('change', function() { sortBtn.click(); });
+        // Removed auto-sort on dropdown change - user must click Sort button
     }
 });
