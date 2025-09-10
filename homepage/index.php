@@ -1,6 +1,5 @@
 <?php
 include("../config.php");
-session_start();
 
 $isLoggedin = isset($_SESSION['valid']);
 ?>  
@@ -25,198 +24,11 @@ $isLoggedin = isset($_SESSION['valid']);
     <link href="https://fonts.googleapis.com/css2?family=Joti+One&display=swap" rel="stylesheet">
     
     <!-- Override any conflicting styles -->
-    <style>
-  /* Center navbar title perfectly */
-.navbar .navbar-brand {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-}
-
-/* Ensure nav elements don't overlap with centered title */
-.nav-container {
-    position: relative;
-}
-
-@media (max-width: 991.98px) {
-    /* On mobile, remove absolute positioning to allow normal flow */
-    .navbar .navbar-brand {
-        position: static;
-        transform: none;
-        margin: 0 auto;
-        text-align: center;
-    }
-    
-    .nav-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .navbar-toggler {
-        order: 1;
-    }
-
-    .navbar-brand {
-        order: 2;
-        flex-grow: 1;
-        text-align: center;
-        margin: 0 10px; /* Add some space */
-    }
-    
-    .navbar-brand .logo {
-        font-size: 1rem; /* Smaller font on mobile */
-        white-space: nowrap;
-    }
-
-    .nav-right {
-        order: 3;
-    }
-
-    /* Hide desktop nav and move mobile nav to take full width */
-    .nav-left {
-        display: none !important;
-    }
-
-    #navbarNav {
-        order: 4;
-        width: 100%;
-        text-align: center;
-    }
-
-    /* In nav-right, hide desktop-specific items */
-    .nav-right .d-none.d-lg-block,
-    .nav-right .d-none.d-lg-inline {
-        display: none !important;
-    }
-    
-    /* Adjust search for mobile */
-    .nav-search-input {
-        max-width: 100px; /* Make search smaller */
-    }
-    .nav-search-btn {
-        padding: 0.25rem 0.5rem;
-        font-size: 0.875rem;
-    }
-}
-
-/* Footer Fixes */
-@media (max-width: 767.98px) {
-    .footer-main {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .footer-column {
-        width: 100%;
-        margin-bottom: 2rem;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
-}
-
-
-    </style>
+  
 </head>
 
 <body>
-    <!-- Original Design Navbar with Bootstrap Responsiveness (Matching Products Page) -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container-fluid nav-container">
-            <!-- Center Logo -->
-            <a class="navbar-brand mx-auto" href="index.php">
-                <h1 class="logo mb-0">
-                    Welcome, mga ka-<span class="sio-highlight">Sio</span><span class="sio-highlight">Sio</span>!
-                </h1>
-            </a>
-            
-            <!-- Single Mobile hamburger button -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <!-- Left Navigation (Desktop) -->
-            <div class="nav-left d-none d-lg-flex">
-                <a href="index.php" class="nav-link">Home</a>
-                <a href="../products/product.php" class="nav-link">Products</a>
-            </div>
-            
-            <!-- Collapsible navbar content (for both mobile and right-aligned desktop items) -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <!-- Mobile-only nav links -->
-                <ul class="navbar-nav d-lg-none">
-                    <li class="nav-item">
-                        <a href="index.php" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../products/product.php" class="nav-link">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#siomai-section"><span class="sio-highlight">Sio</span>mai</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#siopao-section"><span class="sio-highlight">Sio</span>pao</a>
-                    </li>
-                </ul>
-
-                <!-- Right Navigation (collapses on mobile) -->
-                <div class="nav-right d-flex align-items-center ms-auto gap-2">
-                    <!-- Desktop Menu Dropdown -->
-                    <div class="dropdown d-none d-lg-block">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#siomai-section" class="dropdown-item"><span class="sio-highlight">Sio</span>mai</a></li>
-                            <li><a href="#siopao-section" class="dropdown-item"><span class="sio-highlight">Sio</span>pao</a></li>
-                        </ul>
-                    </div>
-                    
-                    <a href="../products/product.php" class="nav-link franchise-btn d-none d-lg-inline">Shop Now!</a>
-                    
-                    <!-- Account Dropdown -->
-                    <div class="dropdown account-dropdown">
-                        <a href="#" class="nav-link account-btn" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="account-icon">👤</span>
-                        </a>
-                        <ul class="dropdown-menu account-menu dropdown-menu-end">
-                            <?php if($isLoggedin): ?>
-                                <li><a href="../logout.php" class="dropdown-item">Log Out</a></li>
-                                <li><a href="#" class="dropdown-item">My Orders</a></li>
-                                <li><a href="#" class="dropdown-item">Profile</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a href="#" class="dropdown-item">Help & Support</a></li>
-                            <?php else: ?>
-                                <li><a href="../loginreg/logreg.php" class="dropdown-item">Sign In</a></li>
-                                <li><a href="#" class="dropdown-item">Create Account</a></li>
-                                <li><a href="#" class="dropdown-item">My Orders</a></li>
-                                <li><a href="#" class="dropdown-item">Profile</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a href="#" class="dropdown-item">Help & Support</a></li>
-                            <?php endif; ?>
-                        </ul>
-                    </div>
-
-                    <?php if($isLoggedin): ?>
-                        <span class="welcome-message d-none d-md-inline">
-                            Welcome, <?php echo htmlspecialchars($_SESSION['valid']); ?>
-                        </span>
-                    <?php endif; ?>
-                    
-                    <a href="../cart/cart.php" class="nav-link cart-link">
-                        &#128722;
-                    </a>
-                    
-                    <!-- Search -->
-                    <input type="text" id="nav-search-input" class="nav-search-input" placeholder="Search...">
-                    <button type="button" class="nav-link nav-search-btn" id="nav-search-btn">Search</button>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <?php include("../headfoot/header.php")   ?>
 
     <!-- Main Content -->
     <main>
@@ -234,7 +46,7 @@ $isLoggedin = isset($_SESSION['valid']);
             <div class="hero-bottom"></div>
         </section>
 
-        <section class="flavors">
+       <section id="siomai-section" class="py-5">
             <div class="container">
                 <h2 class="section-title"><span class="sio-highlight">Sio</span>mai Flavors</h2>
                 <div class="flavors-grid">
@@ -278,7 +90,7 @@ $isLoggedin = isset($_SESSION['valid']);
             </div>
         </section>
 
-        <section class="siopao-section">
+        <section id="siopao-section" class="py-5 bg-light">
             <div class="container">
                 <h2 class="section-title"><span class="sio-highlight">Sio</span>pao Flavors</h2>
                 <div class="flavors-grid">
@@ -364,69 +176,11 @@ $isLoggedin = isset($_SESSION['valid']);
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo-section">
-                    <div class="footer-logo">
-                        <img src="../images/siosiologo.png" alt="SioSio Logo" class="logo-img">
-                    </div>
-                    <p class="footer-copyright">©2025 <span class="sio-highlight">Sio</span><span class="sio-highlight">Sio</span></p>
-                </div>
-                
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h3 class="footer-title">Quick Links</h3>
-                        <ul class="footer-list">
-                            <li><a href="#" class="footer-link">Home</a></li>
-                            <li><a href="#" class="footer-link">Products</a></li>
-                            <li><a href="#" class="footer-link">Our Company</a></li>
-                            <li><a href="#" class="footer-link">Contact</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h3 class="footer-title">Menu</h3>
-                        <ul class="footer-list">
-                            <li><a href="#" class="footer-link"> <span class="sio-highlight">Sio</span>mai</a></li>
-                            <li><a href="#" class="footer-link"><span class="sio-highlight">Sio</span>pao</a></li>
-                        </ul>
-                    </div>
-                    
-                    <!-- <div class="footer-column">
-                        <h3 class="footer-title">Brands</h3>
-                        <ul class="footer-list">
-                            <li><a href="#" class="footer-link">GreaTaste <span class="sio-highlight">Sio</span>mai</a></li>
-                            <li><a href="#" class="footer-link">Master Choice</a></li>
-                            <li><a href="#" class="footer-link">Master <span class="sio-highlight">Sio</span>pao</a></li>
-                        </ul>
-                    </div> -->
-                    
-                    <div class="footer-column">
-                        <h3 class="footer-title">Follow us:</h3>
-                        <div class="social-links">
-                            <a href="" class="social-link facebook" target="_blank" rel="noopener noreferrer">
-                                <span class="social-icon">f</span>
-                            </a>
-                            <a href="" class="social-link instagram" target="_blank" rel="noopener noreferrer">
-                                <span class="social-icon">📷</span>
-                            </a>
-                            <a href="" class="social-link twitter" target="_blank" rel="noopener noreferrer">
-                                <span class="social-icon">𝕏</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-legal">
-                    <a href="#" class="legal-link">Terms of Use</a>
-                    <a href="#" class="legal-link">Privacy Policy</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+              
+
+        <!-- Footer -->
+        <?php include("../headfoot/footer.php")   ?>
+
 
     <!-- Bootstrap 5.3.2 JavaScript Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
