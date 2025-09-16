@@ -23,7 +23,7 @@ $isLoggedin = isset($_SESSION['valid']);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Joti+One&display=swap" rel="stylesheet">
     
-    <!-- Override any conflicting styles -->
+    <!-- Override any conflicting stylesssss -->
   
 </head>
 
