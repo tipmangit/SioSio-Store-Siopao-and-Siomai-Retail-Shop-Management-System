@@ -94,12 +94,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
                   </div></div>";
         } elseif (password_verify($password, $row['password'])) {
             $_SESSION['user_id'] = $row['id'];
-            $_SESSION['user']    = $row['name'];
+            $_SESSION['valid']   = $row['name'];
 
-            echo "<div class='success-popup'><div class='success-popup-content'>
-                    <h3>Login Successful</h3>
-                    <p>Welcome back, {$row['name']}!</p>
-                  </div></div>";
+            // Redirect to homepage after successful login
+            header("Location: ../homepage/index.php");
+            exit;
         } else {
             echo "<div class='error-popup'><div class='error-popup-content'>
                     <h3>Login Failed</h3>
