@@ -88,6 +88,7 @@ body {
   border: 1px solid #ccc;
   outline: none;
   transition: border-color 0.3s;
+  background: #fff;
 }
 
 .form-group input:focus {
@@ -117,21 +118,6 @@ body {
   box-shadow: 0 0 4px rgba(220, 53, 69, 0.4);
 }
 
-
-/* Middle Name (full width) */
-.form-group input {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  background: #fff;   /* make textbox white */
-  outline: none;
-}
-
-.form-group input:focus {
-  border-color: #dc3545;
-}
-
-
 .auth-btn {
   background: #dc3545;
   color: white;
@@ -147,6 +133,7 @@ body {
 .auth-btn:hover {
   background: #a71d2a;
 }
+
 .forgot-password {
   text-align: right;
   margin-bottom: 1rem;
@@ -233,6 +220,127 @@ body {
   padding-left: 18px;
 }
 
+/* =============================
+   OTP STYLES
+============================= */
+
+/* OTP Input Styling */
+#otp {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.5rem;
+    padding: 15px;
+}
+
+/* Resend OTP Section */
+.resend-otp {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.resend-otp p {
+    margin: 0 0 0.5rem 0;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.resend-btn {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    font-weight: 500;
+    text-decoration: underline;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.resend-btn:hover {
+    color: #a71d2a;
+}
+
+.resend-btn:disabled {
+    color: #6c757d;
+    cursor: not-allowed;
+    text-decoration: none;
+}
+
+/* Back to login link */
+.back-to-login {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.back-to-login a {
+    color: #dc3545;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.back-to-login a:hover {
+    color: #a71d2a;
+    text-decoration: underline;
+}
+
+/* Success link in popup */
+.success-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background 0.3s ease;
+}
+
+.success-link:hover {
+    background: rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+}
+
+/* Loading state for buttons */
+.auth-btn:disabled, .resend-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* OTP Form specific styling */
+.auth-form p {
+    text-align: center;
+    color: #6c757d;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.auth-form p strong {
+    color: #dc3545;
+    font-weight: 600;
+}
+
+.form-row-three {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.form-row-three input {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%; /* make them same size as email/password */
+  box-sizing: border-box;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -342,5 +450,19 @@ body {
     .social-links {
         justify-content: flex-start;
     }
+    
+    /* Better mobile responsiveness for OTP */
+    #otp {
+        font-size: 1.2rem;
+        letter-spacing: 0.3rem;
+        padding: 12px;
+    }
+    
+    .auth-form p {
+        font-size: 0.9rem;
+    }
+    
+    .resend-otp {
+        padding: 0.75rem;
+    }
 }
-

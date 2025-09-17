@@ -1,175 +1,169 @@
 <?php
+session_start();
+require __DIR__ . '/vendor/autoload.php';
 include("../config.php");
-$errors = [];
-$showSuccessPopup = false;
 
-// LOGIN
-if (isset($_POST['login'])) {
-    $username = mysqli_real_escape_string($con, $_POST['username']);
-    $password = $_POST['password'];
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-    $stmt = $con->prepare("SELECT * FROM userss WHERE username = ?");
-    $stmt->bind_param("s", $username);
+// ------------------
+// Registration Logic
+// ------------------
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
+    $fname    = trim($_POST['fname']);
+    $mname    = trim($_POST['mname']);
+    $lname    = trim($_POST['lname']);
+    $email    = trim($_POST['email']);
+    $password = trim($_POST['password']);
+    $fullname = preg_replace('/\s+/', ' ', trim("$fname $mname $lname"));
+
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $otp = rand(100000, 999999);
+    $expiresAt = date("Y-m-d H:i:s", strtotime("+2 minutes"));
+
+    // Save user temporarily in session until OTP verified
+    $_SESSION['pending_user'] = [
+        'fname' => $fname,
+        'mname' => $mname,
+        'lname' => $lname,
+        'email' => $email,
+        'password' => $hashedPassword
+    ];
+
+    // Insert OTP into database
+    $stmt = $con->prepare("INSERT INTO otp_verifications (email, otp_code, otp_type, expires_at) VALUES (?, ?, 'registration', ?)");
+    $stmt->bind_param("sss", $email, $otp, $expiresAt);
     $stmt->execute();
-    $result = $stmt->get_result();
 
-    if ($row = $result->fetch_assoc()) {
-        if (password_verify($password, $row['password'])) {
-            $_SESSION['valid'] = $row['username'];
-            $_SESSION['name'] = $row['name'];
-            $_SESSION['id'] = $row['Id'];
-            header("Location: ../homepage/index.php");
-            exit();
-        }
+    // Send OTP email
+    $mail = new PHPMailer(true);
+    try {
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'siosioretailstore@gmail.com';
+        $mail->Password   = 'hqlw sute xjea wcmo'; // Gmail App Password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
+        $mail->SMTPOptions = [
+            'ssl' => [
+                'verify_peer'       => false,
+                'verify_peer_name'  => false,
+                'allow_self_signed' => true,
+            ]
+        ];
+
+        $mail->setFrom('siosioretailstore@gmail.com', 'SioSio Retail Store');
+        $mail->addAddress($email, $fullname);
+
+        $mail->isHTML(true);
+        $mail->Subject = "Your Registration OTP Code";
+        $mail->Body    = "Hello $fullname,<br><br>Your OTP code is: <b>$otp</b><br><br>Valid for 2 minutes.";
+
+        $mail->send();
+
+        header("Location: verify-otp.php?email=" . urlencode($email));
+        exit;
+
+    } catch (Exception $e) {
+        echo "<div class='error-popup'><div class='error-popup-content'>
+                <h3>Email Failed</h3>
+                <p>Mailer Error: {$mail->ErrorInfo}</p>
+              </div></div>";
     }
-    $errors[] = "Wrong Username or Password";
 }
 
+// ------------------
+// Login Logic
+// ------------------
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
+    $email    = trim($_POST['email']);
+    $password = trim($_POST['password']);
 
-// REGISTER
-if (isset($_POST['register'])) {
-    $firstname = trim($_POST['firstname']);
-    $lastname = trim($_POST['lastname']);
-    $middlename = trim($_POST['middlename']);
-    $username = trim($_POST['username']);
-    $email = trim($_POST['email']);
-    $password = $_POST['password'];
+    $stmt = $con->prepare("SELECT * FROM userss WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $res = $stmt->get_result();
 
-    // Basic validation (you can reuse your advanced checks here)
-    if (empty($firstname) || empty($lastname) || empty($username) || empty($email) || empty($password)) {
-        $errors[] = "All fields are required.";
-    }
+    if ($res->num_rows === 1) {
+        $row = $res->fetch_assoc();
+        if ($row['email_verified'] == 0) {
+            echo "<div class='error-popup'><div class='error-popup-content'>
+                    <h3>Email Not Verified</h3>
+                    <p>Please verify your email before logging in.</p>
+                  </div></div>";
+        } elseif (password_verify($password, $row['password'])) {
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['user']    = $row['name'];
 
-    if (empty($errors)) {
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-        $fullname = $firstname . " " . $middlename . " " . $lastname;
-
-        $stmt = $con->prepare("INSERT INTO userss (name, username, email, password) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssss", $fullname, $username, $email, $hashed_password);
-
-        if ($stmt->execute()) {
-            $showSuccessPopup = true;
+            echo "<div class='success-popup'><div class='success-popup-content'>
+                    <h3>Login Successful</h3>
+                    <p>Welcome back, {$row['name']}!</p>
+                  </div></div>";
         } else {
-            $errors[] = "Registration failed. Please try again.";
+            echo "<div class='error-popup'><div class='error-popup-content'>
+                    <h3>Login Failed</h3>
+                    <p>Incorrect password</p>
+                  </div></div>";
         }
+    } else {
+        echo "<div class='error-popup'><div class='error-popup-content'>
+                <h3>Login Failed</h3>
+                <p>Email not found</p>
+              </div></div>";
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SioSio - Login / Signup</title>
+  <title>Login / Register</title>
   <link rel="stylesheet" href="login.css">
 </head>
 <body>
-
-<?php include("../headfoot/header.php"); ?>
-
 <section class="auth-section">
   <div class="auth-container">
+
     <div class="form-toggle">
-      <button id="loginBtn" class="toggle-btn active">Sign In</button>
-      <button id="signupBtn" class="toggle-btn">Sign Up</button>
+      <button class="toggle-btn active" onclick="showForm('login')">Login</button>
+      <button class="toggle-btn" onclick="showForm('register')">Register</button>
     </div>
 
-    <!-- Login Form -->
-    <form class="auth-form" id="loginForm" action="" method="POST">
-      <h2>Sign In</h2>
-      <div class="form-group">
-        <label for="login-username">Username</label>
-        <input type="text" name="username" id="login-username" placeholder="Enter your username" required>
-      </div>
-      <div class="form-group">
-        <label for="login-password">Password</label>
-        <input type="password" name="password" id="login-password" placeholder="Enter your password" required>
-      </div>
-      <div class="forgot-password">
-        <a href="forgot-password.php">Forgot Password?</a>
-      </div>
+    <form class="auth-form" id="login-form" method="POST">
+      <h2>Login</h2>
+      <div class="form-group"><label>Email</label><input type="email" name="email" required></div>
+      <div class="form-group"><label>Password</label><input type="password" name="password" required></div>
+      <div class="forgot-password"><a href="forgot-password.php">Forgot Password?</a></div>
       <button type="submit" name="login" class="auth-btn">Login</button>
     </form>
 
-    <!-- Signup Form -->
-    <form class="auth-form hidden" id="signupForm" action="" method="POST">
-      <h2>Create Account</h2>
-      <div class="form-row-two">
-        <input type="text" name="firstname" placeholder="First Name" required>
-        <input type="text" name="lastname" placeholder="Last Name" required>
-      </div>
-      <div class="form-group">
-        <input type="text" name="middlename" placeholder="Middle Name">
-      </div>
-      <div class="form-group">
-        <input type="text" name="username" placeholder="Choose a username" required>
-      </div>
-      <div class="form-group">
-        <input type="password" name="password" placeholder="Create a password" required>
-      </div>
-      <div class="form-group">
-        <input type="email" name="email" placeholder="Enter your email" required>
-      </div>
+    <form class="auth-form hidden" id="register-form" method="POST">
+      <h2>Register</h2>
+      <div class="form-group"><label>First Name</label><input type="text" name="fname" required></div>
+      <div class="form-group"><label>Middle Name</label><input type="text" name="mname"></div>
+      <div class="form-group"><label>Last Name</label><input type="text" name="lname" required></div>
+      <div class="form-group"><label>Email</label><input type="email" name="email" required></div>
+      <div class="form-group"><label>Password</label><input type="password" name="password" required></div>
       <button type="submit" name="register" class="auth-btn">Register</button>
     </form>
+
   </div>
 </section>
-
-<?php include("../headfoot/footer.php"); ?>
-
-<?php if (!empty($errors)): ?>
-<div class="error-popup">
-  <div class="error-popup-content">
-    <h3>Errors:</h3>
-    <ul>
-      <?php foreach ($errors as $err): ?>
-        <li><?php echo htmlspecialchars($err); ?></li>
-      <?php endforeach; ?>
-    </ul>
-  </div>
-</div>
-<?php endif; ?>
-
-<?php if ($showSuccessPopup): ?>
-<div class="success-popup">
-  <div class="success-popup-content">
-    <h3>Registration Successful!</h3>
-    <p>You can now log in.</p>
-  </div>
-</div>
-<?php endif; ?>
-
 <script>
-const loginBtn = document.getElementById("loginBtn");
-const signupBtn = document.getElementById("signupBtn");
-const loginForm = document.getElementById("loginForm");
-const signupForm = document.getElementById("signupForm");
-
-loginBtn.addEventListener("click", () => {
-  loginForm.classList.remove("hidden");
-  signupForm.classList.add("hidden");
-  loginBtn.classList.add("active");
-  signupBtn.classList.remove("active");
-});
-
-signupBtn.addEventListener("click", () => {
-  signupForm.classList.remove("hidden");
-  loginForm.classList.add("hidden");
-  signupBtn.classList.add("active");
-  loginBtn.classList.remove("active");
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const popups = document.querySelectorAll(".error-popup, .success-popup");
-  popups.forEach(popup => {
-    setTimeout(() => {
-      popup.classList.add("hide");
-      setTimeout(() => popup.remove(), 500); // remove after fade out
-    }, 3000); // 3 seconds
-  });
-});
+function showForm(type) {
+  document.getElementById('login-form').classList.add('hidden');
+  document.getElementById('register-form').classList.add('hidden');
+  document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+  if (type === 'login') {
+    document.getElementById('login-form').classList.remove('hidden');
+    document.querySelector('.form-toggle button:first-child').classList.add('active');
+  } else {
+    document.getElementById('register-form').classList.remove('hidden');
+    document.querySelector('.form-toggle button:last-child').classList.add('active');
+  }
+}
 </script>
-
 </body>
 </html>
