@@ -2,13 +2,57 @@
 include("../config.php");
 $isLoggedin = isset($_SESSION['valid']);
 
-// Ensure session/cart structure uses 'quantity' (not 'qty')
-$cart = $_SESSION['cart'] ?? [];
-
+// Get cart items from database for both logged-in users and guests
+$cart = [];
 $subtotal = 0.0;
-foreach ($cart as $item) {
-    $subtotal += floatval($item['price']) * intval($item['quantity']);
+
+// Determine if user is logged in or guest
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+$session_id = $user_id ? null : session_id();
+
+if ($user_id || $session_id) {
+    // Get cart items with product details
+    if ($user_id) {
+        // For logged-in users
+        $stmt = $con->prepare("
+            SELECT c.id as cart_id, c.quantity, c.price_at_time, c.total_price,
+                   c.product_id, c.product_name, p.description, p.image_url
+            FROM cart c
+            JOIN products p ON c.product_id = p.id
+            WHERE c.user_id = ? AND c.status = 'active'
+            ORDER BY c.created_at DESC
+        ");
+        $stmt->bind_param("i", $user_id);
+    } else {
+        // For guest users
+        $stmt = $con->prepare("
+            SELECT c.id as cart_id, c.quantity, c.price_at_time, c.total_price,
+                   c.product_id, c.product_name, p.description, p.image_url
+            FROM cart c
+            JOIN products p ON c.product_id = p.id
+            WHERE c.session_id = ? AND c.status = 'active'
+            ORDER BY c.created_at DESC
+        ");
+        $stmt->bind_param("s", $session_id);
+    }
+    
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    while ($row = $result->fetch_assoc()) {
+        $cart[$row['product_name']] = [
+            'cart_id' => $row['cart_id'],
+            'product_id' => $row['product_id'],
+            'name' => $row['product_name'],
+            'price' => $row['price_at_time'],
+            'quantity' => $row['quantity'],
+            'image' => $row['image_url'],
+            'description' => $row['description']
+        ];
+        $subtotal += floatval($row['total_price']);
+    }
 }
+
 $deliveryFee = $subtotal > 0 ? 50 : 0;
 $total = $subtotal + $deliveryFee;
 ?>
@@ -36,6 +80,8 @@ $total = $subtotal + $deliveryFee;
             <?php else: ?>
                 <?php foreach ($cart as $name => $item): ?>
                     <div class="cart-item"
+                         data-cart-id="<?= htmlspecialchars($item['cart_id']) ?>"
+                         data-product-id="<?= htmlspecialchars($item['product_id']) ?>"
                          data-name="<?= htmlspecialchars($name) ?>"
                          data-price="<?= htmlspecialchars($item['price']) ?>">
                         <div class="cart-img">
@@ -44,7 +90,7 @@ $total = $subtotal + $deliveryFee;
                         </div>
                         <div class="cart-details">
                             <h3 class="cart-item-name"><?= htmlspecialchars($name) ?></h3>
-                            <p class="cart-item-desc"><?= htmlspecialchars($item['name'] ?? '') ?></p>
+                            <p class="cart-item-desc"><?= htmlspecialchars($item['description'] ?? '') ?></p>
 
                             <div class="cart-actions">
                                 <div class="quantity-control">

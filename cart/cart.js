@@ -27,11 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Send update to server and return parsed JSON
-    const updateCartServer = (product, quantity, remove = false) => {
+    const updateCartServer = (cart_id, quantity, remove = false) => {
         return fetch('update_cart.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: `product=${encodeURIComponent(product)}&quantity=${encodeURIComponent(quantity)}&remove=${remove ? 1 : 0}`
+            body: `cart_id=${encodeURIComponent(cart_id)}&quantity=${encodeURIComponent(quantity)}&remove=${remove ? 1 : 0}`
         })
         .then(r => r.json())
         .catch(err => {
@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
             item.querySelector('.cart-price').textContent = formatCurrency(price * qty);
 
             // inform server
-            const product = item.dataset.name;
-            const res = await updateCartServer(product, qty, false);
+            const cart_id = item.dataset.cartId;
+            const res = await updateCartServer(cart_id, qty, false);
             if (res && typeof res.cartCount !== 'undefined') {
                 const cartCountEl = document.getElementById('cart-count');
                 if (cartCountEl) cartCountEl.textContent = res.cartCount;
@@ -74,10 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (removeBtn) {
             const item = removeBtn.closest('.cart-item');
-            const product = item.dataset.name;
+            const cart_id = item.dataset.cartId;
 
             // inform server to remove
-            const res = await updateCartServer(product, 0, true);
+            const res = await updateCartServer(cart_id, 0, true);
             if (res && typeof res.cartCount !== 'undefined') {
                 const cartCountEl = document.getElementById('cart-count');
                 if (cartCountEl) cartCountEl.textContent = res.cartCount;
@@ -102,8 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const price = parseFloat(item.dataset.price) || 0;
         item.querySelector('.cart-price').textContent = formatCurrency(price * qty);
 
-        const product = item.dataset.name;
-        const res = await updateCartServer(product, qty, false);
+        const cart_id = item.dataset.cartId;
+        const res = await updateCartServer(cart_id, qty, false);
         if (res && typeof res.cartCount !== 'undefined') {
             const cartCountEl = document.getElementById('cart-count');
             if (cartCountEl) cartCountEl.textContent = res.cartCount;

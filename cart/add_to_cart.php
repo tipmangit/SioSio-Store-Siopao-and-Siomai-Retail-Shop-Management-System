@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("../config.php");
 
 // always return JSON
 header('Content-Type: application/json');
@@ -8,6 +9,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['success' => false, 'message' => 'Invalid request']);
     exit;
 }
+
+// Determine if user is logged in or guest
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+$user_name = isset($_SESSION['valid']) ? $_SESSION['valid'] : null; // Get user's name
+$session_id = $user_id ? null : session_id(); // Use session ID for guests
 
 $product = $_POST['product'] ?? '';
 $price = isset($_POST['price']) ? floatval($_POST['price']) : 0.0;
@@ -30,33 +36,74 @@ $images = [
 
 $image = $images[$product] ?? "images/placeholder.jpg";
 
-// ensure cart session exists
-if (!isset($_SESSION['cart'])) {
-    $_SESSION['cart'] = [];
-}
-
-// increment or add
 if ($product === '') {
     echo json_encode(['success' => false, 'message' => 'Missing product']);
     exit;
 }
 
-if (isset($_SESSION['cart'][$product])) {
-    $_SESSION['cart'][$product]['quantity'] += 1;
-} else {
-    $_SESSION['cart'][$product] = [
-        'name' => $product,
-        'price' => $price,
-        'quantity' => 1,
-        'image' => $image
-    ];
+// Get product_id from products table
+$stmt = $con->prepare("SELECT id, name FROM products WHERE name = ?");
+$stmt->bind_param("s", $product);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result->num_rows === 0) {
+    echo json_encode(['success' => false, 'message' => 'Product not found']);
+    exit;
 }
 
-// compute cart count
-$cart_count = 0;
-foreach ($_SESSION['cart'] as $it) {
-    $cart_count += intval($it['quantity']);
+$product_row = $result->fetch_assoc();
+$product_id = $product_row['id'];
+$product_name = $product_row['name'];
+
+// Check if item already exists in cart
+if ($user_id) {
+    // For logged-in users
+    $stmt = $con->prepare("SELECT id, quantity FROM cart WHERE user_id = ? AND product_id = ? AND status = 'active'");
+    $stmt->bind_param("ii", $user_id, $product_id);
+} else {
+    // For guest users
+    $stmt = $con->prepare("SELECT id, quantity FROM cart WHERE session_id = ? AND product_id = ? AND status = 'active'");
+    $stmt->bind_param("si", $session_id, $product_id);
 }
+$stmt->execute();
+$cart_result = $stmt->get_result();
+
+if ($cart_result->num_rows > 0) {
+    // Update existing cart item
+    $cart_item = $cart_result->fetch_assoc();
+    $new_quantity = $cart_item['quantity'] + 1;
+    
+    $stmt = $con->prepare("UPDATE cart SET quantity = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?");
+    $stmt->bind_param("ii", $new_quantity, $cart_item['id']);
+    $stmt->execute();
+} else {
+    // Insert new cart item
+    if ($user_id) {
+        // For logged-in users - include user name
+        $stmt = $con->prepare("INSERT INTO cart (user_id, user_name, product_id, product_name, quantity, price_at_time) VALUES (?, ?, ?, ?, 1, ?)");
+        $stmt->bind_param("isisd", $user_id, $user_name, $product_id, $product_name, $price);
+    } else {
+        // For guest users
+        $stmt = $con->prepare("INSERT INTO cart (session_id, product_id, product_name, quantity, price_at_time) VALUES (?, ?, ?, 1, ?)");
+        $stmt->bind_param("sisd", $session_id, $product_id, $product_name, $price);
+    }
+    $stmt->execute();
+}
+
+// Get updated cart count
+if ($user_id) {
+    // For logged-in users
+    $stmt = $con->prepare("SELECT SUM(quantity) as cart_count FROM cart WHERE user_id = ? AND status = 'active'");
+    $stmt->bind_param("i", $user_id);
+} else {
+    // For guest users
+    $stmt = $con->prepare("SELECT SUM(quantity) as cart_count FROM cart WHERE session_id = ? AND status = 'active'");
+    $stmt->bind_param("s", $session_id);
+}
+$stmt->execute();
+$count_result = $stmt->get_result();
+$cart_count = $count_result->fetch_assoc()['cart_count'] ?? 0;
 
 // return both keys to be robust
 echo json_encode([

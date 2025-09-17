@@ -3,10 +3,25 @@ include("../config.php");
 $isLoggedin = isset($_SESSION['valid']);
 
 $cartCount = 0;
-if (isset($_SESSION['cart'])) {
-    foreach ($_SESSION['cart'] as $item) {
-        $cartCount += $item['quantity'];
-    }
+
+// Determine if user is logged in or guest
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+$session_id = $user_id ? null : session_id();
+
+if ($user_id) {
+    // For logged-in users
+    $stmt = $con->prepare("SELECT SUM(quantity) as cart_count FROM cart WHERE user_id = ? AND status = 'active'");
+    $stmt->bind_param("i", $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $cartCount = $result->fetch_assoc()['cart_count'] ?? 0;
+} elseif ($session_id) {
+    // For guest users
+    $stmt = $con->prepare("SELECT SUM(quantity) as cart_count FROM cart WHERE session_id = ? AND status = 'active'");
+    $stmt->bind_param("s", $session_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $cartCount = $result->fetch_assoc()['cart_count'] ?? 0;
 }
 
 ?>
