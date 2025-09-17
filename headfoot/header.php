@@ -1,6 +1,14 @@
 <?php
 include("../config.php");
 $isLoggedin = isset($_SESSION['valid']);
+
+$cartCount = 0;
+if (isset($_SESSION['cart'])) {
+    foreach ($_SESSION['cart'] as $item) {
+        $cartCount += $item['quantity'];
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -96,12 +104,12 @@ $isLoggedin = isset($_SESSION['valid']);
                
 
                 <!-- Cart -->
-                <a href="../cart/cart.php" class="btn btn-outline-light position-relative rounded-circle hover-scale">
-                    <i class="bi bi-cart3"></i>
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        0
-                    </span>
-                </a>
+<a href="../cart/cart.php" class="btn btn-outline-light position-relative rounded-circle hover-scale">
+    <i class="bi bi-cart3"></i>
+    <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        <?= $cartCount ?>
+    </span>
+</a>
 
                  <!-- Account -->
                     <?php if ($isLoggedin): ?>
