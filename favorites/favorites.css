@@ -94,6 +94,20 @@ body {
     background: #a71d2a;
 }
 
+.favorite-btn {
+  border-radius: 50%;
+  padding: .4rem .6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.favorite-btn .bi-heart {
+  font-size: 1.2rem;
+}
+.favorite-btn.active .bi-heart {
+  color: red; /* red when active */
+}
+
 
 
 /* Responsive Design */

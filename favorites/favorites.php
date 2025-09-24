@@ -1,55 +1,59 @@
 <?php
+session_start();
 include("../config.php");
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../login.php");
+    exit;
+}
 
+$user_id = $_SESSION['user_id'];
 
-$isLoggedin = isset($_SESSION['valid']);
+$sql = "SELECT p.* 
+        FROM favorites f 
+        JOIN products p ON f.product_id = p.id 
+        WHERE f.user_id = ?";
+$stmt = $con->prepare($sql);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$favorites = $result->fetch_all(MYSQLI_ASSOC);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SioSio</title>
-    <link rel="stylesheet" href="favorites.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Joti+One&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Favorites</title>
+  <link rel="stylesheet" href="../favorites/favorites.css">
 </head>
-
 <body>
-    <?php include("../headfoot/header.php")   ?>
+
+<?php include("../headfoot/header.php"); ?>
+
 <main class="favorites-page">
-    <h2 class="favorites-title">Your Favorites</h2>
-
-    <div class="favorites-grid">
-        <!-- Example Favorite Item -->
+  <h2 class="favorites-title">Your Favorites</h2>
+  <div class="favorites-grid">
+    <?php if (count($favorites) > 0): ?>
+      <?php foreach ($favorites as $item): ?>
         <div class="favorite-item">
-            <div class="favorite-img">
-                <img src="https://media.istockphoto.com/id/1176853895/photo/chinese-dim-sum-shrimp-dumplings.jpg?s=612x612&w=0&k=20&c=vrUGqI7qH5Cq9IkLDv0A0SwNoi9cbp4VXec-C6JDZjI=" alt="Hakaw">
-            </div>
-            <div class="favorite-details">
-                <h3 class="favorite-name">Shrimp Hakaw</h3>
-                <p class="favorite-desc">Steamed dumpling with fresh shrimp filling.</p>
-                <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
+          <div class="favorite-img">
+            <img src="<?= htmlspecialchars($item['image_url']) ?>" alt="<?= htmlspecialchars($item['name']) ?>">
+          </div>
+          <div class="favorite-details">
+            <h3 class="favorite-name"><?= htmlspecialchars($item['name']) ?></h3>
+            <p class="favorite-desc"><?= htmlspecialchars($item['description']) ?></p>
+            <button class="add-to-cart-btn" data-product-id="<?= $item['id'] ?>">Add to Cart</button>
+          </div>
         </div>
-
-        <div class="favorite-item">
-            <div class="favorite-img">
-                <img src="https://media.istockphoto.com/id/1313776276/photo/chinese-siu-mai-dim-sum.jpg?s=612x612&w=0&k=20&c=8yUqUKr9e1BHZqCE_gbnGe9tDbIMHB9fD4P4cEYNd_g=" alt="Siomai Special">
-            </div>
-            <div class="favorite-details">
-                <h3 class="favorite-name">Special Siomai</h3>
-                <p class="favorite-desc">Juicy pork siomai with garlic topping.</p>
-                <button class="add-to-cart-btn">Add to Cart</button>
-            </div>
-        </div>
-    </div>
+      <?php endforeach; ?>
+    <?php else: ?>
+      <p>You have no favorites yet.</p>
+    <?php endif; ?>
+  </div>
 </main>
 
-    <?php include("../headfoot/footer.php")   ?>
+<?php include("../headfoot/footer.php"); ?>
 
-    <script src="script.js"></script>
+<script src="../favorites/favorites.js"></script>
 </body>
 </html>
