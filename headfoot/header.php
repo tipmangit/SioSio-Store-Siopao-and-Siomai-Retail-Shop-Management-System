@@ -135,7 +135,7 @@ if ($user_id) {
                             <ul class="dropdown-menu dropdown-menu-end shadow">
                                 <li><a href="../logout.php" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Log Out</a></li>
                                 <li><a href="#" class="dropdown-item"><i class="bi bi-bag-check"></i> My Orders</a></li>
-                                <li><a href="#" class="dropdown-item"><i class="bi bi-person-badge"></i> Profile</a></li>
+                                <li><a href="../profile/profile.php" class="dropdown-item"><i class="bi bi-person-badge"></i> Profile</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a href="#" class="dropdown-item"><i class="bi bi-question-circle"></i> Help & Support</a></li>
                             </ul>
