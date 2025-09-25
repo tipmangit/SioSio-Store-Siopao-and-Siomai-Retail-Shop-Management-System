@@ -1,0 +1,1112 @@
+[25-Sep-2025 16:32:04 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:32:04 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:32:04 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:32:04 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:32:04 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:32:04 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:32:04 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:32:04 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:32:05 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:32:05 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:32:05 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:32:05 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:32:05 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:32:05 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:32:05 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:32:05 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:32:05 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:32:05 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:32:05 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:32:05 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:32:05 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:32:05 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:32:05 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:32:05 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:32:06 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:32:06 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:32:06 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:32:06 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:32:06 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:32:06 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:32:06 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:32:06 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:32:06 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:32:06 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:32:21 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:32:21 Europe/Berlin] POST data: Array
+(
+    [email] => chanfubuki781@gmail.com
+    [request_otp] => 
+)
+
+[25-Sep-2025 16:32:21 Europe/Berlin] Attempting to send OTP email to: chanfubuki781@gmail.com
+[25-Sep-2025 16:32:24 Europe/Berlin] Password reset OTP sent successfully to chanfubuki781@gmail.com
+[25-Sep-2025 16:38:04 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 7
+            [email] => chanfubuki781@gmail.com
+            [name] => chan fubu kira
+            [otp] => 417175
+        )
+
+)
+
+[25-Sep-2025 16:38:04 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:38:47 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:38:47 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:38:52 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:38:52 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:39:40 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:39:40 Europe/Berlin] POST data: Array
+(
+    [email] => chanfubuki781@gmail.com
+    [request_otp] => 
+)
+
+[25-Sep-2025 16:39:40 Europe/Berlin] Attempting to send OTP email to: chanfubuki781@gmail.com
+[25-Sep-2025 16:39:44 Europe/Berlin] Password reset OTP sent successfully to chanfubuki781@gmail.com
+[25-Sep-2025 16:46:00 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 7
+            [email] => chanfubuki781@gmail.com
+            [name] => chan fubu kira
+            [otp] => 630337
+        )
+
+)
+
+[25-Sep-2025 16:46:00 Europe/Berlin] POST data: Array
+(
+    [email] => chanfubuki781@gmail.com
+    [request_otp] => 
+)
+
+[25-Sep-2025 16:46:00 Europe/Berlin] Attempting to send OTP email to: chanfubuki781@gmail.com
+[25-Sep-2025 16:46:03 Europe/Berlin] Password reset OTP sent successfully to chanfubuki781@gmail.com
+[25-Sep-2025 16:46:05 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 7
+            [email] => chanfubuki781@gmail.com
+            [name] => chan fubu kira
+        )
+
+)
+
+[25-Sep-2025 16:46:05 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:46:27 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:46:27 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:46:27 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:46:27 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:46:27 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:46:27 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:46:27 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:46:27 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:46:27 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:46:27 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:46:50 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:46:50 Europe/Berlin] POST data: Array
+(
+    [email] => salvadorclyde42@gmail.com
+    [request_otp] => 
+)
+
+[25-Sep-2025 16:46:50 Europe/Berlin] Attempting to send OTP email to: salvadorclyde42@gmail.com
+[25-Sep-2025 16:46:53 Europe/Berlin] Password reset OTP sent successfully to salvadorclyde42@gmail.com
+[25-Sep-2025 16:47:14 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 8
+            [email] => salvadorclyde42@gmail.com
+            [name] => salvador emerson clyde
+        )
+
+)
+
+[25-Sep-2025 16:47:14 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:47:33 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:47:33 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:47:38 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:47:38 Europe/Berlin] POST data: Array
+(
+    [email] => clydeemerson16@gmail.com
+    [request_otp] => 
+)
+
+[25-Sep-2025 16:47:38 Europe/Berlin] Attempting to send OTP email to: clydeemerson16@gmail.com
+[25-Sep-2025 16:47:42 Europe/Berlin] Password reset OTP sent successfully to clydeemerson16@gmail.com
+[25-Sep-2025 16:49:05 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 16:49:05 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 16:50:09 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 6
+            [email] => clydeemerson16@gmail.com
+            [name] => clyde emerson estrella salvador
+        )
+
+)
+
+[25-Sep-2025 16:50:09 Europe/Berlin] POST data: Array
+(
+    [email] => clydeemerson16@gmail.com
+    [request_otp] => 
+)
+
+[25-Sep-2025 16:50:09 Europe/Berlin] Attempting to send OTP email to: clydeemerson16@gmail.com
+[25-Sep-2025 16:50:13 Europe/Berlin] Password reset OTP sent successfully to clydeemerson16@gmail.com
+[25-Sep-2025 16:50:52 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 6
+            [email] => clydeemerson16@gmail.com
+            [name] => clyde emerson estrella salvador
+        )
+
+)
+
+[25-Sep-2025 16:50:52 Europe/Berlin] POST data: Array
+(
+    [otp] => 321895
+    [verify_otp] => 
+)
+
+[25-Sep-2025 16:51:15 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 6
+            [email] => clydeemerson16@gmail.com
+            [name] => clyde emerson estrella salvador
+        )
+
+)
+
+[25-Sep-2025 16:51:15 Europe/Berlin] POST data: Array
+(
+    [otp] => 321895
+    [verify_otp] => 
+)
+
+[25-Sep-2025 16:51:43 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 6
+            [email] => clydeemerson16@gmail.com
+            [name] => clyde emerson estrella salvador
+        )
+
+)
+
+[25-Sep-2025 16:51:43 Europe/Berlin] POST data: Array
+(
+    [otp] => 321895
+    [verify_otp] => 
+)
+
+[25-Sep-2025 16:51:47 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 6
+            [email] => clydeemerson16@gmail.com
+            [name] => clyde emerson estrella salvador
+        )
+
+)
+
+[25-Sep-2025 16:51:47 Europe/Berlin] POST data: Array
+(
+    [otp] => 321895
+    [verify_otp] => 
+)
+
+[25-Sep-2025 16:51:55 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 6
+            [email] => clydeemerson16@gmail.com
+            [name] => clyde emerson estrella salvador
+        )
+
+)
+
+[25-Sep-2025 16:51:55 Europe/Berlin] POST data: Array
+(
+    [otp] => 321895
+    [verify_otp] => 
+)
+
+[25-Sep-2025 16:51:58 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 6
+            [email] => clydeemerson16@gmail.com
+            [name] => clyde emerson estrella salvador
+        )
+
+)
+
+[25-Sep-2025 16:51:58 Europe/Berlin] POST data: Array
+(
+    [otp] => 321895
+    [verify_otp] => 
+)
+
+[25-Sep-2025 16:52:02 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 6
+            [email] => clydeemerson16@gmail.com
+            [name] => clyde emerson estrella salvador
+        )
+
+)
+
+[25-Sep-2025 16:52:02 Europe/Berlin] POST data: Array
+(
+    [otp] => 321895
+    [verify_otp] => 
+)
+
+[25-Sep-2025 16:52:06 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 6
+            [email] => clydeemerson16@gmail.com
+            [name] => clyde emerson estrella salvador
+        )
+
+)
+
+[25-Sep-2025 16:52:06 Europe/Berlin] POST data: Array
+(
+    [otp] => 321895
+    [verify_otp] => 
+)
+
+[25-Sep-2025 16:52:16 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 6
+            [email] => clydeemerson16@gmail.com
+            [name] => clyde emerson estrella salvador
+        )
+
+)
+
+[25-Sep-2025 16:52:16 Europe/Berlin] POST data: Array
+(
+    [otp] => 321895
+    [verify_otp] => 
+)
+
+[25-Sep-2025 16:52:20 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 6
+            [email] => clydeemerson16@gmail.com
+            [name] => clyde emerson estrella salvador
+        )
+
+)
+
+[25-Sep-2025 16:52:20 Europe/Berlin] POST data: Array
+(
+    [otp] => 321895
+    [verify_otp] => 
+)
+
+[25-Sep-2025 16:52:24 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 6
+            [email] => clydeemerson16@gmail.com
+            [name] => clyde emerson estrella salvador
+        )
+
+)
+
+[25-Sep-2025 16:52:24 Europe/Berlin] POST data: Array
+(
+    [otp] => 321895
+    [verify_otp] => 
+)
+
+[25-Sep-2025 16:57:27 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 6
+            [email] => clydeemerson16@gmail.com
+            [name] => clyde emerson estrella salvador
+        )
+
+)
+
+[25-Sep-2025 16:57:27 Europe/Berlin] POST data: Array
+(
+    [otp] => 321895
+    [verify_otp] => 
+)
+
+[25-Sep-2025 16:57:27 Europe/Berlin] OTP Verification Debug:
+[25-Sep-2025 16:57:27 Europe/Berlin] Email: clydeemerson16@gmail.com
+[25-Sep-2025 16:57:27 Europe/Berlin] Entered OTP: 321895
+[25-Sep-2025 16:57:27 Europe/Berlin] OTPs found for this email: 1
+[25-Sep-2025 16:57:27 Europe/Berlin] DB OTP: 321895 | Expires: 2025-09-25 17:00:09 | Verified: 0
+[25-Sep-2025 16:57:27 Europe/Berlin] Matching OTPs found: 1
+[25-Sep-2025 16:57:27 Europe/Berlin] Current time: 2025-09-25 16:57:27
+[25-Sep-2025 16:57:27 Europe/Berlin] Expires time: 2025-09-25 17:00:09 (timestamp: 1758812409)
+[25-Sep-2025 16:57:27 Europe/Berlin] Is expired? NO
+[25-Sep-2025 16:57:56 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 6
+            [email] => clydeemerson16@gmail.com
+            [name] => clyde emerson estrella salvador
+        )
+
+    [reset_verified] => 1
+)
+
+[25-Sep-2025 16:57:56 Europe/Berlin] POST data: Array
+(
+    [new_password] => clydes
+    [reset_password] => 
+)
+
+[25-Sep-2025 17:00:03 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 17:00:03 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 17:00:17 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 17:00:17 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 17:00:18 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 17:00:18 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 17:00:24 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 17:00:24 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 17:00:57 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 17:00:57 Europe/Berlin] POST data: Array
+(
+    [email] => salvadorclyde42@gmail.com
+    [request_otp] => 
+)
+
+[25-Sep-2025 17:00:57 Europe/Berlin] Attempting to send OTP email to: salvadorclyde42@gmail.com
+[25-Sep-2025 17:01:01 Europe/Berlin] Password reset OTP sent successfully to salvadorclyde42@gmail.com
+[25-Sep-2025 17:04:29 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 8
+            [email] => salvadorclyde42@gmail.com
+            [name] => salvador emerson clyde
+        )
+
+)
+
+[25-Sep-2025 17:04:29 Europe/Berlin] POST data: Array
+(
+    [otp] => 552526
+    [verify_otp] => 
+)
+
+[25-Sep-2025 17:04:29 Europe/Berlin] OTP Verification Debug:
+[25-Sep-2025 17:04:29 Europe/Berlin] Email: salvadorclyde42@gmail.com
+[25-Sep-2025 17:04:29 Europe/Berlin] Entered OTP: 552526
+[25-Sep-2025 17:04:29 Europe/Berlin] OTPs found for this email: 1
+[25-Sep-2025 17:04:29 Europe/Berlin] DB OTP: 552526 | Expires: 2025-09-25 17:10:57 | Verified: 0
+[25-Sep-2025 17:04:29 Europe/Berlin] Matching OTPs found: 1
+[25-Sep-2025 17:04:29 Europe/Berlin] Current time: 2025-09-25 17:04:29
+[25-Sep-2025 17:04:29 Europe/Berlin] Expires time: 2025-09-25 17:10:57 (timestamp: 1758813057)
+[25-Sep-2025 17:04:29 Europe/Berlin] Is expired? NO
+[25-Sep-2025 17:04:57 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 8
+            [email] => salvadorclyde42@gmail.com
+            [name] => salvador emerson clyde
+        )
+
+    [reset_verified] => 1
+)
+
+[25-Sep-2025 17:04:57 Europe/Berlin] POST data: Array
+(
+    [new_password] => iloveu
+    [reset_password] => 
+)
+
+[25-Sep-2025 17:06:58 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 17:06:58 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 17:07:56 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 17:07:56 Europe/Berlin] POST data: Array
+(
+    [email] => chanfubuki781@gmail.com
+    [request_otp] => 
+)
+
+[25-Sep-2025 17:07:56 Europe/Berlin] Attempting to send OTP email to: chanfubuki781@gmail.com
+[25-Sep-2025 17:07:59 Europe/Berlin] Password reset OTP sent successfully to chanfubuki781@gmail.com
+[25-Sep-2025 17:08:23 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 7
+            [email] => chanfubuki781@gmail.com
+            [name] => chan fubu kira
+        )
+
+)
+
+[25-Sep-2025 17:08:23 Europe/Berlin] POST data: Array
+(
+    [otp] => 961213
+    [verify_otp] => 
+)
+
+[25-Sep-2025 17:08:23 Europe/Berlin] OTP Verification Debug:
+[25-Sep-2025 17:08:23 Europe/Berlin] Email: chanfubuki781@gmail.com
+[25-Sep-2025 17:08:23 Europe/Berlin] Entered OTP: 961213
+[25-Sep-2025 17:08:23 Europe/Berlin] OTPs found for this email: 1
+[25-Sep-2025 17:08:23 Europe/Berlin] DB OTP: 961213 | Expires: 2025-09-25 17:17:56 | Verified: 0
+[25-Sep-2025 17:08:23 Europe/Berlin] Matching OTPs found: 1
+[25-Sep-2025 17:08:23 Europe/Berlin] Current time: 2025-09-25 17:08:23
+[25-Sep-2025 17:08:23 Europe/Berlin] Expires time: 2025-09-25 17:17:56 (timestamp: 1758813476)
+[25-Sep-2025 17:08:23 Europe/Berlin] Is expired? NO
+[25-Sep-2025 17:09:00 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 7
+            [email] => chanfubuki781@gmail.com
+            [name] => chan fubu kira
+        )
+
+    [reset_verified] => 1
+)
+
+[25-Sep-2025 17:09:00 Europe/Berlin] POST data: Array
+(
+    [new_password] => qwerty
+    [reset_password] => 
+)
+
+[25-Sep-2025 17:13:09 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 17:13:09 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 17:13:17 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 17:13:17 Europe/Berlin] POST data: Array
+(
+    [email] => chanfubuki781@gmail.com
+    [request_otp] => 
+)
+
+[25-Sep-2025 17:13:17 Europe/Berlin] Attempting to send OTP email to: chanfubuki781@gmail.com
+[25-Sep-2025 17:13:21 Europe/Berlin] Password reset OTP sent successfully to chanfubuki781@gmail.com
+[25-Sep-2025 17:16:30 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 7
+            [email] => chanfubuki781@gmail.com
+            [name] => chan fubu kira
+        )
+
+)
+
+[25-Sep-2025 17:16:30 Europe/Berlin] POST data: Array
+(
+    [otp] => 961213
+    [verify_otp] => 
+)
+
+[25-Sep-2025 17:16:30 Europe/Berlin] OTP Verification Debug:
+[25-Sep-2025 17:16:30 Europe/Berlin] Email: chanfubuki781@gmail.com
+[25-Sep-2025 17:16:30 Europe/Berlin] Entered OTP: 961213
+[25-Sep-2025 17:16:30 Europe/Berlin] OTPs found for this email: 1
+[25-Sep-2025 17:16:30 Europe/Berlin] DB OTP: 370609 | Expires: 2025-09-25 17:23:17 | Verified: 0
+[25-Sep-2025 17:16:30 Europe/Berlin] Matching OTPs found: 0
+[25-Sep-2025 17:16:46 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 7
+            [email] => chanfubuki781@gmail.com
+            [name] => chan fubu kira
+        )
+
+)
+
+[25-Sep-2025 17:16:46 Europe/Berlin] POST data: Array
+(
+    [otp] => 370609
+    [verify_otp] => 
+)
+
+[25-Sep-2025 17:16:46 Europe/Berlin] OTP Verification Debug:
+[25-Sep-2025 17:16:46 Europe/Berlin] Email: chanfubuki781@gmail.com
+[25-Sep-2025 17:16:46 Europe/Berlin] Entered OTP: 370609
+[25-Sep-2025 17:16:46 Europe/Berlin] OTPs found for this email: 1
+[25-Sep-2025 17:16:46 Europe/Berlin] DB OTP: 370609 | Expires: 2025-09-25 17:23:17 | Verified: 0
+[25-Sep-2025 17:16:46 Europe/Berlin] Matching OTPs found: 1
+[25-Sep-2025 17:16:46 Europe/Berlin] Current time: 2025-09-25 17:16:46
+[25-Sep-2025 17:16:46 Europe/Berlin] Expires time: 2025-09-25 17:23:17 (timestamp: 1758813797)
+[25-Sep-2025 17:16:46 Europe/Berlin] Is expired? NO
+[25-Sep-2025 17:17:38 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 7
+            [email] => chanfubuki781@gmail.com
+            [name] => chan fubu kira
+        )
+
+    [reset_verified] => 1
+)
+
+[25-Sep-2025 17:17:38 Europe/Berlin] POST data: Array
+(
+    [new_password] => asdfgh
+    [reset_password] => 
+)
+
+[25-Sep-2025 17:20:30 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 17:20:30 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 17:21:15 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 17:21:15 Europe/Berlin] POST data: Array
+(
+    [email] => clydeemerson16@gmail.com
+    [request_otp] => 
+)
+
+[25-Sep-2025 17:21:15 Europe/Berlin] Attempting to send OTP email to: clydeemerson16@gmail.com
+[25-Sep-2025 17:21:18 Europe/Berlin] Password reset OTP sent successfully to clydeemerson16@gmail.com
+[25-Sep-2025 17:22:16 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 6
+            [email] => clydeemerson16@gmail.com
+            [name] => clyde emerson estrella salvador
+        )
+
+)
+
+[25-Sep-2025 17:22:16 Europe/Berlin] POST data: Array
+(
+    [otp] => 370609
+    [verify_otp] => 
+)
+
+[25-Sep-2025 17:22:16 Europe/Berlin] OTP Verification Debug:
+[25-Sep-2025 17:22:16 Europe/Berlin] Email: clydeemerson16@gmail.com
+[25-Sep-2025 17:22:16 Europe/Berlin] Entered OTP: 370609
+[25-Sep-2025 17:22:16 Europe/Berlin] OTPs found for this email: 1
+[25-Sep-2025 17:22:16 Europe/Berlin] DB OTP: 417304 | Expires: 2025-09-25 17:31:15 | Verified: 0
+[25-Sep-2025 17:22:16 Europe/Berlin] Matching OTPs found: 0
+[25-Sep-2025 17:22:26 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 6
+            [email] => clydeemerson16@gmail.com
+            [name] => clyde emerson estrella salvador
+        )
+
+)
+
+[25-Sep-2025 17:22:26 Europe/Berlin] POST data: Array
+(
+    [otp] => 417304
+    [verify_otp] => 
+)
+
+[25-Sep-2025 17:22:26 Europe/Berlin] OTP Verification Debug:
+[25-Sep-2025 17:22:26 Europe/Berlin] Email: clydeemerson16@gmail.com
+[25-Sep-2025 17:22:26 Europe/Berlin] Entered OTP: 417304
+[25-Sep-2025 17:22:26 Europe/Berlin] OTPs found for this email: 1
+[25-Sep-2025 17:22:26 Europe/Berlin] DB OTP: 417304 | Expires: 2025-09-25 17:31:15 | Verified: 0
+[25-Sep-2025 17:22:26 Europe/Berlin] Matching OTPs found: 1
+[25-Sep-2025 17:22:26 Europe/Berlin] Current time: 2025-09-25 17:22:26
+[25-Sep-2025 17:22:26 Europe/Berlin] Expires time: 2025-09-25 17:31:15 (timestamp: 1758814275)
+[25-Sep-2025 17:22:26 Europe/Berlin] Is expired? NO
+[25-Sep-2025 17:23:35 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 6
+            [email] => clydeemerson16@gmail.com
+            [name] => clyde emerson estrella salvador
+        )
+
+    [reset_verified] => 1
+)
+
+[25-Sep-2025 17:23:35 Europe/Berlin] POST data: Array
+(
+    [new_password] => zxcvbn
+    [reset_password] => 
+)
+
+[25-Sep-2025 17:23:55 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 17:23:55 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 17:24:20 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 17:24:20 Europe/Berlin] POST data: Array
+(
+    [email] => salvadorclyde42@gmail.com
+    [request_otp] => 
+)
+
+[25-Sep-2025 17:24:20 Europe/Berlin] Attempting to send OTP email to: salvadorclyde42@gmail.com
+[25-Sep-2025 17:24:23 Europe/Berlin] Password reset OTP sent successfully to salvadorclyde42@gmail.com
+[25-Sep-2025 17:27:24 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 8
+            [email] => salvadorclyde42@gmail.com
+            [name] => salvador emerson clyde
+        )
+
+)
+
+[25-Sep-2025 17:27:24 Europe/Berlin] POST data: Array
+(
+    [otp] => 143693
+    [verify_otp] => 
+)
+
+[25-Sep-2025 17:27:24 Europe/Berlin] OTP Verification Debug:
+[25-Sep-2025 17:27:24 Europe/Berlin] Email: salvadorclyde42@gmail.com
+[25-Sep-2025 17:27:24 Europe/Berlin] Entered OTP: 143693
+[25-Sep-2025 17:27:24 Europe/Berlin] OTPs found for this email: 1
+[25-Sep-2025 17:27:24 Europe/Berlin] DB OTP: 143693 | Expires: 2025-09-25 17:34:20 | Verified: 0
+[25-Sep-2025 17:27:24 Europe/Berlin] Matching OTPs found: 1
+[25-Sep-2025 17:27:24 Europe/Berlin] Current time: 2025-09-25 17:27:24
+[25-Sep-2025 17:27:24 Europe/Berlin] Expires time: 2025-09-25 17:34:20 (timestamp: 1758814460)
+[25-Sep-2025 17:27:24 Europe/Berlin] Is expired? NO
+[25-Sep-2025 17:29:22 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 8
+            [email] => salvadorclyde42@gmail.com
+            [name] => salvador emerson clyde
+        )
+
+    [reset_verified] => 1
+)
+
+[25-Sep-2025 17:29:22 Europe/Berlin] POST data: Array
+(
+    [new_password] => poiuyt
+    [reset_password] => 
+)
+
+[25-Sep-2025 17:29:44 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 17:29:44 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 17:29:50 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 17:29:50 Europe/Berlin] POST data: Array
+(
+    [email] => clydeemerson16@gmail.com
+    [request_otp] => 
+)
+
+[25-Sep-2025 17:29:50 Europe/Berlin] Attempting to send OTP email to: clydeemerson16@gmail.com
+[25-Sep-2025 17:29:54 Europe/Berlin] Password reset OTP sent successfully to clydeemerson16@gmail.com
+[25-Sep-2025 17:30:12 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 6
+            [email] => clydeemerson16@gmail.com
+            [name] => clyde emerson estrella salvador
+        )
+
+)
+
+[25-Sep-2025 17:30:12 Europe/Berlin] POST data: Array
+(
+    [otp] => 533171
+    [verify_otp] => 
+)
+
+[25-Sep-2025 17:30:12 Europe/Berlin] OTP Verification Debug:
+[25-Sep-2025 17:30:12 Europe/Berlin] Email: clydeemerson16@gmail.com
+[25-Sep-2025 17:30:12 Europe/Berlin] Entered OTP: 533171
+[25-Sep-2025 17:30:12 Europe/Berlin] OTPs found for this email: 1
+[25-Sep-2025 17:30:12 Europe/Berlin] DB OTP: 533171 | Expires: 2025-09-25 17:39:50 | Verified: 0
+[25-Sep-2025 17:30:12 Europe/Berlin] Matching OTPs found: 1
+[25-Sep-2025 17:30:12 Europe/Berlin] Current time: 2025-09-25 17:30:12
+[25-Sep-2025 17:30:12 Europe/Berlin] Expires time: 2025-09-25 17:39:50 (timestamp: 1758814790)
+[25-Sep-2025 17:30:12 Europe/Berlin] Is expired? NO
+[25-Sep-2025 17:30:28 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 6
+            [email] => clydeemerson16@gmail.com
+            [name] => clyde emerson estrella salvador
+        )
+
+    [reset_verified] => 1
+)
+
+[25-Sep-2025 17:30:28 Europe/Berlin] POST data: Array
+(
+    [new_password] => 098765
+    [reset_password] => 
+)
+
+[25-Sep-2025 17:31:21 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 17:31:21 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 17:31:30 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 17:31:30 Europe/Berlin] POST data: Array
+(
+    [email] => chesterdavid@gmail.com
+    [request_otp] => 
+)
+
+[25-Sep-2025 18:35:53 Europe/Berlin] Session data: Array
+(
+    [user_id] => 
+)
+
+[25-Sep-2025 18:35:53 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 18:35:58 Europe/Berlin] Session data: Array
+(
+    [user_id] => 
+)
+
+[25-Sep-2025 18:35:58 Europe/Berlin] POST data: Array
+(
+    [email] => qmedsmilanez@tip.edu.ph
+    [request_otp] => 
+)
+
+[25-Sep-2025 18:35:58 Europe/Berlin] Attempting to send OTP email to: qmedsmilanez@tip.edu.ph
+[25-Sep-2025 18:36:01 Europe/Berlin] Password reset OTP sent successfully to qmedsmilanez@tip.edu.ph
+[25-Sep-2025 18:37:23 Europe/Berlin] Session data: Array
+(
+    [user_id] => 
+    [reset_user] => Array
+        (
+            [id] => 9
+            [email] => qmedsmilanez@tip.edu.ph
+            [name] => Marco Edgardo Milanez
+        )
+
+)
+
+[25-Sep-2025 18:37:23 Europe/Berlin] POST data: Array
+(
+    [otp] => 442281
+    [verify_otp] => 
+)
+
+[25-Sep-2025 18:37:23 Europe/Berlin] OTP Verification Debug:
+[25-Sep-2025 18:37:23 Europe/Berlin] Email: qmedsmilanez@tip.edu.ph
+[25-Sep-2025 18:37:23 Europe/Berlin] Entered OTP: 442281
+[25-Sep-2025 18:37:23 Europe/Berlin] OTPs found for this email: 1
+[25-Sep-2025 18:37:23 Europe/Berlin] DB OTP: 442281 | Expires: 2025-09-25 18:45:58 | Verified: 0
+[25-Sep-2025 18:37:23 Europe/Berlin] Matching OTPs found: 1
+[25-Sep-2025 18:37:23 Europe/Berlin] Current time: 2025-09-25 18:37:23
+[25-Sep-2025 18:37:23 Europe/Berlin] Expires time: 2025-09-25 18:45:58 (timestamp: 1758818758)
+[25-Sep-2025 18:37:23 Europe/Berlin] Is expired? NO
+[25-Sep-2025 18:38:11 Europe/Berlin] Session data: Array
+(
+    [user_id] => 
+    [reset_user] => Array
+        (
+            [id] => 9
+            [email] => qmedsmilanez@tip.edu.ph
+            [name] => Marco Edgardo Milanez
+        )
+
+    [reset_verified] => 1
+)
+
+[25-Sep-2025 18:38:11 Europe/Berlin] POST data: Array
+(
+    [new_password] => 123456
+    [reset_password] => 
+)
+
