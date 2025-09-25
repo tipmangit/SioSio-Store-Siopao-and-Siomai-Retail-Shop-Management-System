@@ -40,7 +40,7 @@ $isLoggedin = isset($_SESSION['valid']);
                             <li><a href="../homepage/index.php" class="footer-link">Home</a></li>
                             <li><a href="../products/product.php" class="footer-link">Shop</a></li>
                             <li><a href="../company/about.php" class="footer-link">About Us</a></li>
-                            <li><a href="../contact/contact.php" class="footer-link">Contact</a></li>
+                            <li><a href="../contact/contact.php" class="footer-link">Contact Us</a></li>
                         </ul>
                     </div>
                     
