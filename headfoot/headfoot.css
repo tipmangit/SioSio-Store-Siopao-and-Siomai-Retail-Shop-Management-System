@@ -661,3 +661,91 @@ body {
     }
 }
 
+/* Login Notification Modal Styles */
+#loginNotificationModal .modal-content {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+#loginNotificationModal .modal-header {
+    background: linear-gradient(135deg, #ffa500, #ff6b6b);
+    color: white;
+    border-radius: 20px 20px 0 0;
+    padding: 1.5rem 2rem;
+}
+
+#loginNotificationModal .modal-title {
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+#loginNotificationModal .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+#loginNotificationModal .modal-body {
+    padding: 2rem;
+    background: white;
+}
+
+#loginNotificationModal .modal-body h4 {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+#loginNotificationModal .modal-body .text-muted {
+    color: #6c757d !important;
+    line-height: 1.6;
+}
+
+#loginNotificationModal .modal-footer {
+    background: #f8f9fa;
+    border-radius: 0 0 20px 20px;
+    padding: 1.5rem 2rem;
+}
+
+#loginNotificationModal .btn-primary {
+    background: linear-gradient(135deg, #ffa500, #ff6b6b);
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#loginNotificationModal .btn-primary:hover {
+    background: linear-gradient(135deg, #ff6b6b, #ffa500);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 165, 0, 0.3);
+}
+
+#loginNotificationModal .btn-outline-secondary {
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#loginNotificationModal .btn-outline-secondary:hover {
+    transform: translateY(-2px);
+}
+
+/* SioSio Highlight in Modal */
+#loginNotificationModal .sio-highlight {
+    color: #ffa500;
+    font-weight: 700;
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+    #loginNotificationModal .modal-header,
+    #loginNotificationModal .modal-body,
+    #loginNotificationModal .modal-footer {
+        padding: 1rem 1.5rem;
+    }
+    
+    #loginNotificationModal .btn-lg {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+

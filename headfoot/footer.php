@@ -37,18 +37,18 @@ $isLoggedin = isset($_SESSION['valid']);
                     <div class="footer-column">
                         <h3 class="footer-title">Quick Links</h3>
                         <ul class="footer-list">
-                            <li><a href="#" class="footer-link">Home</a></li>
-                            <li><a href="#" class="footer-link">Products</a></li>
-                            <li><a href="#" class="footer-link">Our Company</a></li>
-                            <li><a href="#" class="footer-link">Contact</a></li>
+                            <li><a href="../homepage/index.php" class="footer-link">Home</a></li>
+                            <li><a href="../products/product.php" class="footer-link">Shop</a></li>
+                            <li><a href="../company/about.php" class="footer-link">About Us</a></li>
+                            <li><a href="../contact/contact.php" class="footer-link">Contact</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
                         <h3 class="footer-title">Menu</h3>
                         <ul class="footer-list">
-                            <li><a href="#" class="footer-link"> <span class="sio-highlight">Sio</span>mai</a></li>
-                            <li><a href="#" class="footer-link"><span class="sio-highlight">Sio</span>pao</a></li>
+                            <li><a href="../products/product.php#siomai" class="footer-link"> <span class="sio-highlight">Sio</span>mai</a></li>
+                            <li><a href="../products/product.php#siopao" class="footer-link"><span class="sio-highlight">Sio</span>pao</a></li>
                         </ul>
                     </div>
                     
@@ -72,8 +72,8 @@ $isLoggedin = isset($_SESSION['valid']);
             
             <div class="footer-bottom">
                 <div class="footer-legal">
-                    <a href="#" class="legal-link">Terms of Use</a>
-                    <a href="#" class="legal-link">Privacy Policy</a>
+                    <a href="#" class="legal-link"></a>
+                    <a href="#" class="legal-link"></a>
                 </div>
             </div>
         </div>

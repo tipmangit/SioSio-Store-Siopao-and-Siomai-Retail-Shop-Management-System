@@ -1,0 +1,229 @@
+/* Company Page Styles */
+
+/* Override body padding for this specific page */
+body {
+    padding-top: 80px !important;
+}
+
+/* Page Header */
+.page-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/Homebg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding-top: 100px !important; /* Just enough spacing for navbar */
+    padding-bottom: 80px !important;
+    margin-top: 0 !important; /* Remove top margin to eliminate white space */
+    min-height: 300px;
+}
+
+/* Section Styles */
+.section-title {
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(135deg, #ff6b6b, #ffa500);
+    border-radius: 2px;
+}
+
+/* Company Story Section */
+.company-story {
+    padding: 80px 0;
+}
+
+.story-content {
+    padding-right: 2rem;
+}
+
+.story-image img {
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.highlight-box {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 5px solid #ffa500;
+    margin-top: 2rem;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    padding: 0.5rem 0;
+    font-weight: 500;
+}
+
+/* Values Section */
+.our-values {
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+}
+
+.value-card {
+    background: white;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.value-icon {
+    margin-bottom: 1.5rem;
+}
+
+.value-title {
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.value-description {
+    color: #6c757d;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Products Section */
+.our-products {
+    padding: 80px 0;
+}
+
+.product-showcase {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.product-showcase:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+    height: 250px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.product-image img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.product-content {
+    padding: 2rem;
+}
+
+.product-name {
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.product-description {
+    color: #6c757d;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    padding: 80px 0;
+}
+
+.cta-buttons .btn {
+    padding: 12px 30px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.cta-buttons .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* SioSio Highlight */
+.sio-highlight {
+    color: #ffa500;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .story-content {
+        padding-right: 0;
+        margin-bottom: 2rem;
+    }
+    
+    .section-title::after {
+        left: 0;
+        transform: none;
+    }
+    
+    .value-card {
+        padding: 2rem 1.5rem;
+    }
+    
+    .product-content {
+        padding: 1.5rem;
+    }
+    
+    .cta-buttons .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    .highlight-box {
+        margin-top: 2rem;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .page-header {
+        padding: 3rem 0;
+    }
+    
+    .company-story,
+    .our-products {
+        padding: 60px 0;
+    }
+    
+    .cta-section {
+        padding: 60px 0;
+    }
+}

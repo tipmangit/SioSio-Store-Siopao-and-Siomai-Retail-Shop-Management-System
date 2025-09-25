@@ -73,10 +73,18 @@ if ($user_id) {
 
                 <!-- Links -->
                 <a href="../homepage/index.php" class="nav-link fw-bold">Home</a>
-                <a href="../products/product.php" class="nav-link fw-bold">Products</a>
-                <a href="../favorites/favorites.php" class="nav-link text-danger fw-bold">
-                    <i class="bi bi-heart-fill"></i> Favorites
-                </a>
+                <a href="../products/product.php" class="nav-link fw-bold">Shop</a>
+                <?php if ($isLoggedin): ?>
+                    <a href="../favorites/favorites.php" class="nav-link text-danger fw-bold">
+                        <i class="bi bi-heart-fill"></i> Favorites
+                    </a>
+                <?php else: ?>
+                    <a href="#" class="nav-link text-danger fw-bold" onclick="showLoginNotification(event)">
+                        <i class="bi bi-heart-fill"></i> Favorites
+                    </a>
+                <?php endif; ?>
+                <a href="../company/about.php" class="nav-link fw-bold">About Us</a>
+                <a href="../contact/contact.php" class="nav-link fw-bold">Contact Us</a>
             </div>
             
             <!-- Collapsible navbar content (for both mobile and right-aligned desktop items) -->
@@ -90,7 +98,11 @@ if ($user_id) {
                         <a href="../products/product.php" class="nav-link">Products</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../favorites/favorites.php" class="nav-link">Favorites</a>
+                        <?php if ($isLoggedin): ?>
+                            <a href="../favorites/favorites.php" class="nav-link">Favorites</a>
+                        <?php else: ?>
+                            <a href="#" class="nav-link" onclick="showLoginNotification(event)">Favorites</a>
+                        <?php endif; ?>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#siomai-section"><span class="sio-highlight">Sio</span>mai</a>
@@ -161,6 +173,47 @@ if ($user_id) {
             </div>
         </div>
     </nav>
+
+    <!-- Login Notification Modal -->
+    <div class="modal fade" id="loginNotificationModal" tabindex="-1" aria-labelledby="loginNotificationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="loginNotificationModalLabel">
+                        <i class="bi bi-heart-fill text-danger me-2"></i>
+                        Access Your Favorites
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="mb-4">
+                        <i class="bi bi-person-circle display-1 text-muted mb-3"></i>
+                        <h4 class="mb-3">To see your favorites, please create or login to your account!</h4>
+                        <p class="text-muted">
+                            Create an account to save your favorite <span class="sio-highlight">Sio</span>mai and 
+                            <span class="sio-highlight">Sio</span>pao items for easy access later.
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer border-0 justify-content-center">
+                    <a href="../loginreg/logreg.php" class="btn btn-primary btn-lg px-4">
+                        <i class="bi bi-person-plus me-2"></i>Login / Create Account
+                    </a>
+                    <button type="button" class="btn btn-outline-secondary btn-lg px-4" data-bs-dismiss="modal">
+                        Maybe Later
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showLoginNotification(event) {
+            event.preventDefault();
+            var modal = new bootstrap.Modal(document.getElementById('loginNotificationModal'));
+            modal.show();
+        }
+    </script>
 
 
        
