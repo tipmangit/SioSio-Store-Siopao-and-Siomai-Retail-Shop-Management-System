@@ -2,6 +2,46 @@
 include("../config.php");
 $isLoggedin = isset($_SESSION['valid']);
 
+// Get current page name for active navigation highlighting
+$currentPage = basename($_SERVER['PHP_SELF']);
+$currentDir = basename(dirname($_SERVER['PHP_SELF']));
+
+// Debug: You can temporarily uncomment these lines to see what values we're getting
+// echo "<!-- Debug: currentPage = $currentPage, currentDir = $currentDir -->";
+// echo "<div style='position: fixed; top: 100px; right: 10px; background: red; color: white; padding: 10px; z-index: 9999;'>Debug: Page=$currentPage Dir=$currentDir</div>";
+
+// Function to determine if navigation item should be active
+function isActiveNav($page) {
+    global $currentPage, $currentDir;
+    
+    // Handle specific page mappings
+    switch($page) {
+        case 'home':
+            return ($currentDir == 'homepage') || 
+                   ($currentPage == 'index.php' && $currentDir == 'homepage');
+        case 'shop':
+            return ($currentDir == 'products') || 
+                   ($currentPage == 'product.php');
+        case 'favorites':
+            return ($currentDir == 'favorites') || 
+                   ($currentPage == 'favorites.php');
+        case 'about':
+            return ($currentDir == 'company') || 
+                   ($currentPage == 'about.php');
+        case 'contact':
+            return ($currentDir == 'contact') || 
+                   ($currentPage == 'contact.php');
+        case 'cart':
+            return ($currentDir == 'cart') || 
+                   ($currentPage == 'cart.php');
+        case 'profile':
+            return ($currentDir == 'profile') || 
+                   ($currentPage == 'profile.php');
+        default:
+            return false;
+    }
+}
+
 $cartCount = 0;
 
 // Determine if user is logged in or guest
@@ -68,14 +108,11 @@ if ($user_id) {
             
             <!-- Left Navigation (Desktop) -->
            <div class="nav-left d-none d-lg-flex">
-                <!-- Logo -->
-                
-
-                <!-- Links -->
-                <a href="../homepage/index.php" class="nav-link fw-bold">Home</a>
-                <a href="../products/product.php" class="nav-link fw-bold">Shop</a>
+                <!-- Links with active state highlighting -->
+                <a href="../homepage/index.php" class="nav-link fw-bold <?= isActiveNav('home') ? 'active' : '' ?>">Home</a>
+                <a href="../products/product.php" class="nav-link fw-bold <?= isActiveNav('shop') ? 'active' : '' ?>">Shop</a>
                 <?php if ($isLoggedin): ?>
-                    <a href="../favorites/favorites.php" class="nav-link text-danger fw-bold">
+                    <a href="../favorites/favorites.php" class="nav-link text-danger fw-bold <?= isActiveNav('favorites') ? 'active' : '' ?>">
                         <i class="bi bi-heart-fill"></i> Favorites
                     </a>
                 <?php else: ?>
@@ -83,8 +120,8 @@ if ($user_id) {
                         <i class="bi bi-heart-fill"></i> Favorites
                     </a>
                 <?php endif; ?>
-                <a href="../company/about.php" class="nav-link fw-bold">About Us</a>
-                <a href="../contact/contact.php" class="nav-link fw-bold">Contact Us</a>
+                <a href="../company/about.php" class="nav-link fw-bold <?= isActiveNav('about') ? 'active' : '' ?>">About Us</a>
+                <a href="../contact/contact.php" class="nav-link fw-bold <?= isActiveNav('contact') ? 'active' : '' ?>">Contact Us</a>
             </div>
             
             <!-- Collapsible navbar content (for both mobile and right-aligned desktop items) -->
@@ -92,23 +129,23 @@ if ($user_id) {
                 <!-- Mobile-only nav links -->
                 <ul class="navbar-nav d-lg-none">
                     <li class="nav-item">
-                        <a href="../homepage/index.php" class="nav-link">Home</a>
+                        <a href="../homepage/index.php" class="nav-link <?= isActiveNav('home') ? 'active' : '' ?>">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../products/product.php" class="nav-link">Products</a>
+                        <a href="../products/product.php" class="nav-link <?= isActiveNav('shop') ? 'active' : '' ?>">Shop</a>
                     </li>
                     <li class="nav-item">
                         <?php if ($isLoggedin): ?>
-                            <a href="../favorites/favorites.php" class="nav-link">Favorites</a>
+                            <a href="../favorites/favorites.php" class="nav-link <?= isActiveNav('favorites') ? 'active' : '' ?>">Favorites</a>
                         <?php else: ?>
                             <a href="#" class="nav-link" onclick="showLoginNotification(event)">Favorites</a>
                         <?php endif; ?>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#siomai-section"><span class="sio-highlight">Sio</span>mai</a>
+                        <a href="../company/about.php" class="nav-link <?= isActiveNav('about') ? 'active' : '' ?>">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#siopao-section"><span class="sio-highlight">Sio</span>pao</a>
+                        <a href="../contact/contact.php" class="nav-link <?= isActiveNav('contact') ? 'active' : '' ?>">Contact Us</a>
                     </li>
                 </ul>
             
@@ -118,12 +155,12 @@ if ($user_id) {
 
     <!-- Desktop Menu Dropdown -->
                 <div class="dropdown d-none d-lg-block">
-                    <a href="#" class="nav-link dropdown-toggle px-3 py-2 rounded hover-effect" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a href="#" class="nav-link dropdown-toggle px-3 py-2 rounded hover-effect" data-bs-toggle="dropdown" aria-expanded="false" role="button">
                         Menu
                     </a>
                     <ul class="dropdown-menu shadow">
-                        <li><a href="#siomai-section" class="dropdown-item"><i class="bi bi-circle"></i> Siomai</a></li>
-                        <li><a href="#siopao-section" class="dropdown-item"><i class="bi bi-circle"></i> Siopao</a></li>
+                        <li><a href="../products/product.php#siomai-section" class="dropdown-item"><i class="bi bi-circle"></i> Siomai</a></li>
+                        <li><a href="../products/product.php#siopao-section" class="dropdown-item"><i class="bi bi-circle"></i> Siopao</a></li>
                     </ul>
                 </div>
 
@@ -131,7 +168,7 @@ if ($user_id) {
                
 
                 <!-- Cart -->
-<a href="../cart/cart.php" class="btn btn-outline-light position-relative rounded-circle hover-scale">
+<a href="../cart/cart.php" class="btn btn-outline-light position-relative rounded-circle hover-scale <?= isActiveNav('cart') ? 'active' : '' ?>">
     <i class="bi bi-cart3"></i>
     <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
         <?= $cartCount ?>
@@ -141,7 +178,7 @@ if ($user_id) {
                  <!-- Account -->
                     <?php if ($isLoggedin): ?>
                         <div class="dropdown">
-                            <a href="#" class="btn btn-outline-light rounded-circle hover-scale" data-bs-toggle="dropdown">
+                            <a href="#" class="btn btn-outline-light rounded-circle hover-scale" data-bs-toggle="dropdown" aria-expanded="false" role="button">
                                 <i class="bi bi-person-fill"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end shadow">
@@ -213,12 +250,48 @@ if ($user_id) {
             var modal = new bootstrap.Modal(document.getElementById('loginNotificationModal'));
             modal.show();
         }
+
+        // Enhanced active navigation highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get current page URL
+            const currentURL = window.location.pathname;
+            const currentPage = currentURL.split('/').pop();
+            const currentDir = currentURL.split('/').slice(-2, -1)[0];
+            
+            // Remove any existing active classes
+            document.querySelectorAll('.nav-link.active').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelectorAll('.btn.active').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class based on current page
+            let activeLinks = [];
+            
+            if (currentDir === 'homepage' || currentPage === 'index.php') {
+                activeLinks = document.querySelectorAll('a[href*="homepage"], a[href*="index.php"]');
+            } else if (currentDir === 'products' || currentPage === 'product.php') {
+                activeLinks = document.querySelectorAll('a[href*="products"], a[href*="product.php"]');
+            } else if (currentDir === 'favorites' || currentPage === 'favorites.php') {
+                activeLinks = document.querySelectorAll('a[href*="favorites"]');
+            } else if (currentDir === 'company' || currentPage === 'about.php') {
+                activeLinks = document.querySelectorAll('a[href*="company"], a[href*="about.php"]');
+            } else if (currentDir === 'contact' || currentPage === 'contact.php') {
+                activeLinks = document.querySelectorAll('a[href*="contact"]');
+            } else if (currentDir === 'cart' || currentPage === 'cart.php') {
+                activeLinks = document.querySelectorAll('a[href*="cart"]');
+            } else if (currentDir === 'profile' || currentPage === 'profile.php') {
+                activeLinks = document.querySelectorAll('a[href*="profile"]');
+            }
+            
+            // Apply active class to matching links
+            activeLinks.forEach(link => {
+                if (link.classList.contains('nav-link')) {
+                    link.classList.add('active');
+                } else if (link.classList.contains('btn')) {
+                    link.classList.add('active');
+                }
+            });
+        });
     </script>
-
-
-       
-    </main>
-
-   
-</body>
-</html>

@@ -2,14 +2,16 @@
 include("../config.php");
 $isLoggedin = isset($_SESSION['valid']);
 
-$favSql = "SELECT product_id FROM favorites WHERE user_id = ?";
-$favStmt = $con->prepare($favSql);
-$favStmt->bind_param("i", $_SESSION['user_id']);
-$favStmt->execute();
-$favRes = $favStmt->get_result();
 $favIds = [];
-while ($row = $favRes->fetch_assoc()) {
-  $favIds[] = (int)$row['product_id'];
+if ($isLoggedin && isset($_SESSION['user_id'])) {
+    $favSql = "SELECT product_id FROM favorites WHERE user_id = ?";
+    $favStmt = $con->prepare($favSql);
+    $favStmt->bind_param("i", $_SESSION['user_id']);
+    $favStmt->execute();
+    $favRes = $favStmt->get_result();
+    while ($row = $favRes->fetch_assoc()) {
+        $favIds[] = (int)$row['product_id'];
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -318,9 +320,14 @@ while ($row = $favRes->fetch_assoc()) {
 
   <?php include("../headfoot/footer.php") ?>
 
+  <!-- Pass favorites data to JavaScript -->
+  <script>
+    window.userFavorites = <?php echo json_encode($favIds); ?>;
+    window.isLoggedIn = <?php echo json_encode($isLoggedin); ?>;
+  </script>
+
   <!-- Bootstrap + Custom JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <script src="product.js?v=<?php echo time(); ?>"></script>
-  <script src="../favorites/favorites.js?v=<?php echo time(); ?>"></script>
 </body>
 </html>

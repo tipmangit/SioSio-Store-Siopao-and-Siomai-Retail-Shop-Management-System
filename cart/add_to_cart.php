@@ -16,6 +16,7 @@ $user_name = isset($_SESSION['valid']) ? $_SESSION['valid'] : null; // Get user'
 $session_id = $user_id ? null : session_id(); // Use session ID for guests
 
 $product = $_POST['product'] ?? '';
+$product_id_direct = isset($_POST['product_id']) ? (int)$_POST['product_id'] : 0;
 $price = isset($_POST['price']) ? floatval($_POST['price']) : 0.0;
 
 // image mapping (optional)
@@ -36,25 +37,45 @@ $images = [
 
 $image = $images[$product] ?? "images/placeholder.jpg";
 
-if ($product === '') {
-    echo json_encode(['success' => false, 'message' => 'Missing product']);
+// Handle both product name and direct product_id
+if ($product_id_direct > 0) {
+    // Direct product_id provided (from favorites page)
+    $stmt = $con->prepare("SELECT id, name, price FROM products WHERE id = ?");
+    $stmt->bind_param("i", $product_id_direct);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if ($result->num_rows === 0) {
+        echo json_encode(['success' => false, 'message' => 'Product not found']);
+        exit;
+    }
+    
+    $product_row = $result->fetch_assoc();
+    $product_id = $product_row['id'];
+    $product_name = $product_row['name'];
+    $price = $product_row['price']; // Use price from database
+} else if ($product !== '') {
+    // Product name provided (from products page)
+    $stmt = $con->prepare("SELECT id, name, price FROM products WHERE name = ?");
+    $stmt->bind_param("s", $product);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    
+    if ($result->num_rows === 0) {
+        echo json_encode(['success' => false, 'message' => 'Product not found']);
+        exit;
+    }
+    
+    $product_row = $result->fetch_assoc();
+    $product_id = $product_row['id'];
+    $product_name = $product_row['name'];
+    if ($price <= 0) {
+        $price = $product_row['price']; // Use price from database if not provided
+    }
+} else {
+    echo json_encode(['success' => false, 'message' => 'Missing product information']);
     exit;
 }
-
-// Get product_id from products table
-$stmt = $con->prepare("SELECT id, name FROM products WHERE name = ?");
-$stmt->bind_param("s", $product);
-$stmt->execute();
-$result = $stmt->get_result();
-
-if ($result->num_rows === 0) {
-    echo json_encode(['success' => false, 'message' => 'Product not found']);
-    exit;
-}
-
-$product_row = $result->fetch_assoc();
-$product_id = $product_row['id'];
-$product_name = $product_row['name'];
 
 // Check if item already exists in cart
 if ($user_id) {

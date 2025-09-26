@@ -8,6 +8,9 @@ body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -17,6 +20,8 @@ body {
     padding: 120px 2rem 60px; /* offset for navbar */
     max-width: 1000px;
     margin: 0 auto;
+    flex: 1; /* This will make the main content expand to push footer down */
+    min-height: calc(100vh - 200px); /* Ensure minimum height */
 }
 
 .cart-title {

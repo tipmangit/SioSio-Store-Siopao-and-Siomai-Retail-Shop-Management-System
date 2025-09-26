@@ -1110,3 +1110,75 @@
     [reset_password] => 
 )
 
+[25-Sep-2025 19:01:33 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 19:01:33 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 19:07:05 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 19:07:05 Europe/Berlin] POST data: Array
+(
+)
+
+[25-Sep-2025 19:07:11 Europe/Berlin] Session data: Array
+(
+)
+
+[25-Sep-2025 19:07:11 Europe/Berlin] POST data: Array
+(
+    [email] => qceesalvador@tip.edu.ph
+    [request_otp] => 
+)
+
+[25-Sep-2025 19:07:11 Europe/Berlin] Attempting to send OTP email to: qceesalvador@tip.edu.ph
+[25-Sep-2025 19:07:15 Europe/Berlin] Password reset OTP sent successfully to qceesalvador@tip.edu.ph
+[25-Sep-2025 19:07:32 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 14
+            [email] => qceesalvador@tip.edu.ph
+            [name] => clyde emerson salvador
+        )
+
+)
+
+[25-Sep-2025 19:07:32 Europe/Berlin] POST data: Array
+(
+    [otp] => 922647
+    [verify_otp] => 
+)
+
+[25-Sep-2025 19:07:32 Europe/Berlin] OTP Verification Debug:
+[25-Sep-2025 19:07:32 Europe/Berlin] Email: qceesalvador@tip.edu.ph
+[25-Sep-2025 19:07:32 Europe/Berlin] Entered OTP: 922647
+[25-Sep-2025 19:07:32 Europe/Berlin] OTPs found for this email: 1
+[25-Sep-2025 19:07:32 Europe/Berlin] DB OTP: 922647 | Expires: 2025-09-25 19:17:11 | Verified: 0
+[25-Sep-2025 19:07:32 Europe/Berlin] Matching OTPs found: 1
+[25-Sep-2025 19:07:32 Europe/Berlin] Current time: 2025-09-25 19:07:32
+[25-Sep-2025 19:07:32 Europe/Berlin] Expires time: 2025-09-25 19:17:11 (timestamp: 1758820631)
+[25-Sep-2025 19:07:32 Europe/Berlin] Is expired? NO
+[25-Sep-2025 19:07:40 Europe/Berlin] Session data: Array
+(
+    [reset_user] => Array
+        (
+            [id] => 14
+            [email] => qceesalvador@tip.edu.ph
+            [name] => clyde emerson salvador
+        )
+
+    [reset_verified] => 1
+)
+
+[25-Sep-2025 19:07:40 Europe/Berlin] POST data: Array
+(
+    [new_password] => 123456
+    [reset_password] => 
+)
+
